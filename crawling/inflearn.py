@@ -1,3 +1,5 @@
+# 만든이 : 정우영
+
 import urllib.request
 import urllib.parse
 import json
@@ -9,7 +11,7 @@ from urllib.parse import quote
 main_url = "https://www.inflearn.com"
 # last_page = 40
 last_page = 2
-inflearns = pd.DataFrame({"title": [], "price": [], "view": [], "score": []})
+inflearn_df = pd.DataFrame({"title": [], "price": [], "view": [], "score": []})
 
 for i in range(1, last_page + 1):
     url = main_url + "/courses?order=seq&page=" + str(i)
@@ -43,9 +45,9 @@ for i in range(1, last_page + 1):
             score = score.get_text()
 
         inflearn_dict["score"] = score
-        inflearn_df = pd.Series(inflearn_dict)
+        inflearn_series = pd.Series(inflearn_dict)
 
-        inflearns = inflearns.append(inflearn_df, ignore_index=True)
+        inflearn_df = inflearn_df.append(inflearn_series, ignore_index=True)
 
-inflearns.to_csv("../data/inflearns.csv", index=False)
+inflearn_df.to_csv("data/inflearn.csv", index=False)
 

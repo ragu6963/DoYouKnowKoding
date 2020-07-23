@@ -1,3 +1,5 @@
+# 만든이 : 정우영
+
 import urllib.request
 import urllib.parse
 import json
@@ -8,7 +10,9 @@ from urllib.parse import quote
 from selenium import webdriver
 
 programmers_dict = {}
-driver = webdriver.Chrome("./data/chromedriver")
+programmers_df = pd.DataFrame({"title": [], "price": [], "view": []})
+
+driver = webdriver.Chrome("./crawling/data/chromedriver")
 driver.get(
     "https://programmers.co.kr/learn?tag=%EB%AA%A8%EB%93%A0%20%EC%BD%94%EC%8A%A4"
 )
@@ -43,4 +47,10 @@ for item in items:
         )
         # print(view)
         programmers_dict["view"] = view
+        print(title)
+        programmers_series = pd.Series(programmers_dict)
+        programmers_df = programmers_df.append(
+            programmers_series, ignore_index=True
+        )
 
+programmers_df.to_csv("data/programmers_df.csv", index=False)
