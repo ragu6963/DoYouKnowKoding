@@ -47,5 +47,5 @@ for i in range(1, last_page + 1):
 
         inflearns = inflearns.append(inflearn_df, ignore_index=True)
 
-inflearns.to_csv("../data/inflearns.csv", index=False)
+inflearns.to_csv("./data/inflearns.csv", index=False)
 
