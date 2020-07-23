@@ -1,0 +1,46 @@
+import urllib.request
+import urllib.parse
+import json
+import pandas as pd
+import time, requests
+from bs4 import BeautifulSoup
+from urllib.parse import quote
+from selenium import webdriver
+
+programmers_dict = {}
+driver = webdriver.Chrome("./data/chromedriver")
+driver.get(
+    "https://programmers.co.kr/learn?tag=%EB%AA%A8%EB%93%A0%20%EC%BD%94%EC%8A%A4"
+)
+time.sleep(3)
+source = driver.page_source
+items = driver.find_elements_by_xpath("/html/body/div[3]/div[3]/div[2]/li")
+for item in items:
+    item_text = item.text
+    if not "정원" in item_text:
+        title = item.find_element_by_class_name("title").text
+        programmers_dict["title"] = title
+
+        price = (
+            item.find_element_by_xpath("a/div[3]/h5/span[2]")
+            .text.replace("₩", "")
+            .replace(",", "")
+        )
+        if price == "무료":
+            price = 0
+
+        price = int(price)
+        programmers_dict["price"] = price
+
+        url = item.find_element_by_xpath("a").get_attribute("href")
+        with urllib.request.urlopen(url) as response:
+            html = response.read().decode("utf8")
+            soup = BeautifulSoup(html, "html.parser")
+        view = (
+            soup.select("#overview-fixed-menu > div > ul > li > h6")[-2]
+            .get_text()
+            .split("명")[0]
+        )
+        # print(view)
+        programmers_dict["view"] = view
+
