@@ -3,6 +3,7 @@
 import pandas as pd
 import numpy as np
 
+
 # %%
 file_list = [
     "inflearn",
@@ -13,10 +14,9 @@ file_list = [
     "sangco",
     "kocw",
 ]
-
-# %%
 temp_df = pd.DataFrame(
     {
+        
         "site": [],
         "view_sum": [],
         "view_mean": [],
@@ -26,12 +26,10 @@ temp_df = pd.DataFrame(
         "score_mean": [],
     }
 )
-subject = "all"
-for file_name in file_list:
-    df = pd.read_csv(f"../analyze_data/{subject}/{subject}_{file_name}.csv")
+# %%
 
-    if df["site"].count() == 0:
-        continue
+for file_name in file_list:
+    df = pd.read_csv(f"../data/{file_name}.csv")
 
     temp_dict = {}
 
@@ -53,7 +51,6 @@ for file_name in file_list:
     temp_dict["view_mean"] = view_mean
 
     columns_list = df.columns
-
     price_mean = 0
     # 가격 평균
     if "price" in columns_list:
@@ -87,7 +84,4 @@ for file_name in file_list:
 temp_df
 
 
-# %%
-
-
-# %%
+# 
