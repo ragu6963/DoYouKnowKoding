@@ -30,6 +30,7 @@ for item in items:
             .text.replace("₩", "")
             .replace(",", "")
         )
+
         if price == "무료":
             price = 0
 
