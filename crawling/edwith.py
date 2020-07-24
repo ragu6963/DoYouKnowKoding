@@ -11,7 +11,7 @@ from selenium import webdriver
 
 edwith_df = pd.DataFrame({"title": [], "view": [], "score": []})
 
-driver = webdriver.Chrome("crawling/data/chromedriver")
+driver = webdriver.Chrome("crawling/data/chromedriver") 
 categoryId = [298, 299]
 for Id in categoryId:
     driver.implicitly_wait(2)
