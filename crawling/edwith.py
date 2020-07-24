@@ -9,7 +9,7 @@ from bs4 import BeautifulSoup
 from urllib.parse import quote
 from selenium import webdriver
 
-edwith_df = pd.DataFrame({"title": [], "view": [], "score": []})
+edwith_df = pd.DataFrame({"title": [], "view": [], "like": []})
 
 driver = webdriver.Chrome("crawling/data/chromedriver") 
 categoryId = [298, 299]
@@ -24,16 +24,16 @@ for Id in categoryId:
             .find_element_by_tag_name("dt")
             .text
         )
-        score = card.find_element_by_class_name("favorite").text.replace(
+        like = card.find_element_by_class_name("favorite").text.replace(
             "좋아요", ""
         )
         view = card.find_element_by_class_name("student").text.replace(
             "수강생 수", ""
         )
         print(title)
-        print(score)
+        print(like)
         print(view)
-        edwith_dict = {"title": title, "view": view, "score": score}
+        edwith_dict = {"title": title, "view": view, "like": like}
         edwith_series = pd.Series(edwith_dict)
 
         edwith_df = edwith_df.append(edwith_series, ignore_index=True)
