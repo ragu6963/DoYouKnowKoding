@@ -9,7 +9,8 @@ from bs4 import BeautifulSoup
 from urllib.parse import quote
 from selenium import webdriver
 
-last_page = 1
+kocw_df = pd.DataFrame({"title": [], "view": [], "score": []})
+
 driver = webdriver.Chrome("crawling/data/chromedriver")
 driver.get("http://www.kocw.net/home/index.do")
 driver.implicitly_wait(3)
@@ -67,4 +68,11 @@ for keyword in search_list:
         except:
             score = -1
             print("평점 X")
+
+        kocw_dict = {"title": title, "view": view, "score": score}
+        kocw_series = pd.Series(kocw_dict)
+
+        kocw_df = kocw_df.append(kocw_series, ignore_index=True)
+
+kocw_df.to_csv("data/kocw.csv", index=False)
 

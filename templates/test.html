@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <div id="flipbook">
+        <div class="hard"> Turn.js </div>
+        <div class="hard"></div>
+        <div class="pg1"> Page 1 </div>
+        <div class="pg2"> Page 2 </div>
+        <div class="pg3"> Page 3 </div>
+        <div class="pg4"> Page 4 </div>
+        <div class="pg1"> Page 5 </div>
+        <div class="pg2"> Page 6 </div>
+        <div class="pg3"> Page 7 </div>
+        <div class="pg4"> Page 8 </div>
+        <div class="pg1"> Page 9 </div>
+        <div class="pg2"> Page 10 </div>
+        <div class="pg3"> Page 11 </div>
+        <div class="pg4"> Page 12 </div>
+        <div class="hard"></div>
+        <div class="hard"></div>
+    </div>
+    <hr /> Page:
+    <input type="number" id="pageFld" min=1 />
+    <button id="prevBtn">Previous</button>
+    <button id="nextBtn">Next</button>
+
+    <script type="text/javascript">
+        var height = $(window).height() - 100;
+        var width = $(window).width() - 100;
+
+        $("#flipbook").turn({
+            width: width,
+            height: height,
+            autoCenter: true
+        });
+
+        $("#pageFld").val($("#flipbook").turn("page"));
+
+        $("#flipbook").bind("turned", function (event, page, view) {
+            $("#pageFld").val(page);
+        });
+
+        $("#pageFld").change(function () {
+            $("#flipbook").turn("page", $(this).val());
+        });
+
+        $("#prevBtn").click(function () {
+            $("#flipbook").turn("previous");
+        });
+
+        $("#nextBtn").click(function () {
+            $("#flipbook").turn("next");
+        });
+    </script>
+    <style>
+        #flipbook {
+            overflow: hidden
+        }
+
+        .hard {
+            background-color: #00F;
+        }
+
+        .pg1 {
+            background-color: #FF0;
+        }
+
+        .pg2 {
+            background-color: #0FF;
+        }
+
+        .pg3 {
+            background-color: #F0F;
+        }
+
+        .pg4 {
+            background-color: #F00
+        }
+    </style>
+</body>
+
+</html>

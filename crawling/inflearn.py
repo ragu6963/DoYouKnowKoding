@@ -9,8 +9,8 @@ from urllib.parse import quote
 
 
 main_url = "https://www.inflearn.com"
-# last_page = 40
-last_page = 2
+last_page = 40
+# last_page = 2
 inflearn_df = pd.DataFrame({"title": [], "price": [], "view": [], "score": []})
 
 for i in range(1, last_page + 1):
@@ -20,7 +20,7 @@ for i in range(1, last_page + 1):
         soup = BeautifulSoup(html, "html.parser")
     cards = soup.select("div.card")
 
-    for card in cards[:1]:
+    for card in cards:
         inflearn_dict = {}
         url = card.select_one(".course_card_front")["href"]
         title = card.select_one(".course_title").get_text()
@@ -43,11 +43,12 @@ for i in range(1, last_page + 1):
             score = -1
         else:
             score = score.get_text()
-
+        
         inflearn_dict["score"] = score
         inflearn_series = pd.Series(inflearn_dict)
 
         inflearn_df = inflearn_df.append(inflearn_series, ignore_index=True)
+        print(title)
 
 inflearn_df.to_csv("data/inflearn.csv", index=False)
 

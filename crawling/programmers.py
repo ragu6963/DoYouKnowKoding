@@ -53,4 +53,4 @@ for item in items:
             programmers_series, ignore_index=True
         )
 
-programmers_df.to_csv("data/programmers_df.csv", index=False)
+programmers_df.to_csv("data/programmers.csv", index=False)
