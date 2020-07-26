@@ -9,4 +9,4 @@ for file_name in file_list:
     # print(df)
 
     an_view = df.sort_values(by=["view"], axis=0, ascending=False)
-    print(an_view)
+    # print(an_view)
