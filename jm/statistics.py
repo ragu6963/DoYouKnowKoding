@@ -1,8 +1,11 @@
 # 만든이 : 정우영
 # %%
+import matplotlib.pyplot as plt
+import matplotlib as mpl
+import matplotlib.font_manager as fm
 import pandas as pd
 import numpy as np
-
+import platform
 
 # %%
 file_list = [
@@ -14,6 +17,8 @@ file_list = [
     "sangco",
     "kocw",
 ]
+
+# %%
 temp_df = pd.DataFrame(
     {
         "site": [],
@@ -25,10 +30,12 @@ temp_df = pd.DataFrame(
         "score_mean": [],
     }
 )
-# %%
-
+subject = "java"
 for file_name in file_list:
-    df = pd.read_csv(f"../data/{file_name}.csv")
+    df = pd.read_csv(f"../analyze_data/{subject}/{subject}_{file_name}.csv")
+
+    if df["site"].count() == 0:
+        continue
 
     temp_dict = {}
 
@@ -50,6 +57,7 @@ for file_name in file_list:
     temp_dict["view_mean"] = view_mean
 
     columns_list = df.columns
+
     price_mean = 0
     # 가격 평균
     if "price" in columns_list:
@@ -82,5 +90,28 @@ for file_name in file_list:
 
 temp_df
 
+#  (java) site 별 조회 수 평균 그래프 
 
+mpl.rc('font', family='NanumBarunGothic') #한글 폰트 설정
+plt.figure(figsize=(10, 5))
+plt.bar(temp_df['site'].astype(str),temp_df['view_mean']) 
+plt.title('조회')
+plt.xlabel('사이트')
+plt.ylabel('조회 수')
+plt.show()
+
+
+# %%
+#  (java) site 별 가격 평균 그래프 
+
+mpl.rc('font', family='NanumBarunGothic') #한글 폰트 설정
+plt.figure(figsize=(10, 5))
+plt.bar(temp_df['site'].astype(str),temp_df['price_mean']) 
+plt.title('사이트 별 가격평균')
+plt.xlabel('사이트')
+plt.ylabel('가격')
+plt.show()
+
+# 
+    
 # %%
