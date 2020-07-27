@@ -5,6 +5,7 @@ import numpy as np
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 
+
 # %%
 file_list = [
     "inflearn",
@@ -107,7 +108,7 @@ site_lec_sum
 fig = plt.figure()
 plt.bar(site_lec_sum["site"], site_lec_sum["lec_sum"])
 plt.show()
-.# %%
+# %%
 # 그래프 평균 조회수
 site_view_mean = pd.DataFrame()
 site_view_mean["site"] = temp_df["site"]
@@ -137,18 +138,18 @@ plt.show()
 
 
 # %%
-site_like_sum_division_view_sum = pd.DataFrame()
-site_like_sum_division_view_sum["site"] = temp_df["site"]
-site_like_sum_division_view_sum["like_sum_division_view_sum"] = temp_df[
-    "like_sum_division_view_sum"
-]
-site_like_sum_division_view_sum
-fig = plt.figure()
-plt.bar(
-    site_like_sum_division_view_sum["site"],
-    site_like_sum_division_view_sum["like_sum_division_view_sum"],
-)
-plt.show()
+# site_like_sum_division_view_sum = pd.DataFrame()
+# site_like_sum_division_view_sum["site"] = temp_df["site"]
+# site_like_sum_division_view_sum["like_sum_division_view_sum"] = temp_df[
+#     "like_sum_division_view_sum"
+# ]
+# site_like_sum_division_view_sum
+# fig = plt.figure()
+# plt.bar(
+#     site_like_sum_division_view_sum["site"],
+#     site_like_sum_division_view_sum["like_sum_division_view_sum"],
+# )
+# plt.show()
 
 
 # %%
@@ -208,4 +209,7 @@ fig = go.Figure(data=[go.Bar(x=x, y=y, text=y, textposition="auto",)])
 fig.show()
 
 
+# %%
 
+
+# %%
