@@ -1,135 +1,125 @@
 <section id="bookpage" class="ftco-section bookcover" style="position: relative;">
+
     <!-- 이동버튼 -->
-    <button id="prevBtn" class="moveBtn btn btn-link btn-lg" style="left:3rem;">
-        <i class="fas fa-angle-left fa-3x"></i>
-    </button>
-    <button id="nextBtn" class="moveBtn btn btn-link btn-lg" style="right:3rem;">
-        <i class="fas fa-angle-right fa-3x"></i>
-    </button>
+    {% include "moveBtn.html" %}
 
     <!-- 북마크 -->
-    <button id="allBtn" class="markBtn bttn-material-flat bttn-md bttn-royal bttn-no-outline"
-        style="left:5%; visibility: hidden;">
-        <i class="fas fa-book"></i>
-    </button>
-    <button id="pythonBtn" class="markBtn bttn-material-flat bttn-md bttn-primary bttn-no-outline" style="right:10%">
-        <i class="fab fa-python"></i>
-    </button>
-    <button id="javaBtn" class="markBtn bttn-material-flat bttn-md bttn-danger bttn-no-outline" style="right:15%">
-        <i class="fab fa-java"></i>
-    </button>
-    <button id="cBtn" class="markBtn bttn-material-flat bttn-md bttn-success bttn-no-outline" style="right:20%">
-        <i class="fas fa-copyright"></i>
-    </button>
-    <button id="etcBtn" class="markBtn bttn-material-flat bttn-md bttn-warning bttn-no-outline" style="right:25%">
-        <i class="fas fa-comment-dots"></i>
-    </button>
+    {% include "bookmark.html" %}
 
     <!-- 1페이지를 표지로 만들 때 -->
     <div id="flipbook" class="flipbook">
-        <div class="hard" style="overflow:visible; background-image:url('../static/images/book2-cover.png'); background-size:cover">
-            <h1>
-                <!-- 1page -->
-                표지
-            </h1>
+        <div class="hard right startcover">
+            <!-- 1page -->
+            <div class="bookContent">
+            </div>
         </div>
-    <!-- 1페이지를 목차로 만들 때 -->
-    <!-- <div id="flipbook" class="flipbook">
-        <div class="hard" style="overflow:visible; background-image:url('../static/images/book2-right.png'); background-size:cover">
-            <h1>
-                1page
-                <div class="card text-center" style="width: auto; height: auto;">
-                    <img src="../static/images/coding.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">DO YOU KNOW KODING?</h5>
-                      <p class="card-text">Korea cODING language analysis report</p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                      <li class="list-group-item">파이썬</li>
-                      <li class="list-group-item">자바</li>
-                      <li class="list-group-item">C언어</li>
-                      <li class="list-group-item">기타</li>
-                      <li class="list-group-item">TMI</li>
-                    </ul>
-                  </div>
-            </h1>
-        </div> -->
-        <div class="hard" style="background-image:url('../static/images/book2-left.png'); background-size:cover">
-            <h1>
-                <!-- 2page -->
-                파이썬1
-            </h1>+
+        <div class="hard left">
+            <!-- 2page -->
+            <div class="bookContent">
+            </div>
         </div>
-        <div class="pg1" style="background-image:url('../static/images/book2-right.png'); background-size:cover">
-            <h1>
-                <!-- 3page -->
-                파이썬2
-            </h1>
+        <div class="right">
+            <!-- 3page -->
+            <div class="bookContent">
+                <img src="./static/images/python_wordcloud.png">
+            </div>
         </div>
-        <div class="pg2" style="background-image:url('../static/images/book2-left.png'); background-size:cover">
-            <h1>
-                <!-- 4page -->
-                자바1
-            </h1>
+        <div class="left">
+            <!-- 4page -->
+            <div class="bookContent">
+            </div>
         </div>
-        <div class="pg3" style="background-image:url('../static/images/book2-right.png'); background-size:cover">
-            <h1>
-                <!-- 5page -->
-                자바2
-            </h1>
+        <div class="right">
+            <!-- 5page -->
+            <div class="bookContent">
+            </div>
         </div>
-        <div class="pg4" style="background-image:url('../static/images/book2-left.png'); background-size:cover">
-            <h1>
-                <!-- 6page -->
-                C언어1
-            </h1>
+        <div class="left">
+            <!-- 6page -->
+            <div class="bookContent">
+            </div>
         </div>
-        <div class="pg1" style="background-image:url('../static/images/book2-right.png'); background-size:cover">
-            <h1>
-                <!-- 7page -->
-                C언어2
-            </h1>
+        <div class="right">
+            <!-- 7page -->
+            <div class="bookContent">
+            </div>
         </div>
-        <div class="pg2" style="background-image:url('../static/images/book2-left.png'); background-size:cover">
-            <h1>
-                <!-- 8page -->
-                기타1
-            </h1>
+        <div class="left">
+            <!-- 8page -->
+            <div class="bookContent">
+            </div>
         </div>
-        <div class="pg3" style="background-image:url('../static/images/book2-right.png'); background-size:cover">
-            <h1>
-                기타1
-            </h1>
+        <div class="right">
+            <div class="bookContent">
+            </div>
         </div>
-        <div class="pg4" style="background-image:url('../static/images/book2-left.png'); background-size:cover">
-            <h1>
-                기타1
-            </h1>
+        <div class="left">
+            <div class="bookContent">
+            </div>
         </div>
-        <div class="hard" style="background-image:url('../static/images/book2-right.png'); background-size:cover">
-            <h1>
-                마지막1
-            </h1>
+        <div class="hard right">
+            <div class="bookContent">
+            </div>
+
         </div>
-        <div class="hard" style="background-image:url('../static/images/book2-left.png'); background-size:cover">
-            <h1>
-                마지막2
-            </h1>
+        <div class="hard endcover">
+            <div class="bookContent">
+            </div>
         </div>
     </div>
 
 </section>
 
 <style>
+    .bookContent {}
+
+    .startcover {
+        /*
+        background-image: url('../static/images/book_crop_cover.png');
+        background-size: cover;
+        */
+    }
+
+    .endcover {
+        /*
+        background-image: url('../static/images/book_crop_cover.png');
+        background-size: cover;
+        */
+    }
+
+    .left {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("../static/images/right-border.png");
+        background-position: right top;
+        background-repeat: repeat-y;
+    }
+
+    .right {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("../static/images/left-border.png");
+        background-position: left top;
+        background-repeat: repeat-y;
+    }
+
     html {
         overflow-x: hidden
     }
+
+
 
     .hard {
         background-color: rgba(255, 255, 255, 255);
     }
 
-    .bookcovor {
+    .bookcover {
         padding-top: 75px;
         padding-bottom: 25px;
     }
@@ -149,24 +139,8 @@
 
     .markBtn {
         position: absolute;
-        z-index: 0;
+        z-index: 2;
         height: 3.5rem;
         margin-top: -50px
     }
-
-    /* .pg1 {
-        background-color: #FF0;
-    }
-
-    .pg2 {
-        background-color: #0FF;
-    }
-
-    .pg3 {
-        background-color: #F0F;
-    }
-
-    .pg4 {
-        background-color: #F00
-    } */
 </style>

@@ -43,7 +43,7 @@ def displayWordCloud(
     plt.imshow(wordcloud)
     plt.axis("off")
     plt.show()
-    # wordcloud.to_file("wordCloud.png")
+    wordcloud.to_file("python_wordcloud.png")
 
 
 # %%
@@ -68,7 +68,7 @@ c_mask = np.array(c_mask)
 # 사용자 사전 추가
 from konlpy.tag import Komoran
 
-for language_name in language_list[1:2]:
+for language_name in language_list[0:1]:
     title_list = []
     title_str = ""
     df = pd.read_csv(f"../analyze_data/{language_name}/{language_name}_all.csv")

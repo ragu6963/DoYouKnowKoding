@@ -28,6 +28,8 @@ temp_df = pd.DataFrame(
     }
 )
 subject = "all"
+
+
 for file_name in file_list:
     df = pd.read_csv(f"../analyze_data/{subject}/{subject}_{file_name}.csv")
 
@@ -65,6 +67,8 @@ for file_name in file_list:
         temp_dict["price_mean"] = price_mean
     else:
         temp_dict["price_mean"] = np.nan
+
+    # 유료 강의 무료 강의 나누기
 
     # like 평균
     if df["like"].isnull().sum() == 0:
