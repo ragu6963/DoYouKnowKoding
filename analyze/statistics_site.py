@@ -28,6 +28,8 @@ temp_df = pd.DataFrame(
     }
 )
 subject = "all"
+
+
 for file_name in file_list:
     df = pd.read_csv(f"../analyze_data/{subject}/{subject}_{file_name}.csv")
 
@@ -65,6 +67,8 @@ for file_name in file_list:
         temp_dict["price_mean"] = price_mean
     else:
         temp_dict["price_mean"] = np.nan
+
+    # 유료 강의 무료 강의 나누기
 
     # like 평균
     if df["like"].isnull().sum() == 0:
@@ -183,11 +187,20 @@ all_view_mean = pd.DataFrame(
     {
         "조회수평균": ["0", "0", "0", "0", "0", "0", "0"],
         "site": temp_df.sort_values(by=["view_mean"], axis=0)["site"][:],
-        "view_mean": temp_df.sort_values(by=["view_mean"], axis=0)["view_mean"][:],
+        "view_mean": temp_df.sort_values(by=["view_mean"], axis=0)["view_mean"][
+            :
+        ],
     }
 )
 
-fig = px.bar(all_view_mean, x="view_mean", y="조회수평균", color="site", orientation="h", height=500)
+fig = px.bar(
+    all_view_mean,
+    x="view_mean",
+    y="조회수평균",
+    color="site",
+    orientation="h",
+    height=500,
+)
 fig.show(config=config)
 fig.write_html("file.html")
 
