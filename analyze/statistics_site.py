@@ -2,7 +2,7 @@
 # %%
 import pandas as pd
 import numpy as np
-import matplotlib as mpl  # 그래프를 그리는 패키지
+import matplotlib as mpl
 import matplotlib.pyplot as plt
 
 # %%
@@ -10,28 +10,23 @@ file_list = [
     "inflearn",
     "edwith",
     "groom",
-    "geek",
+    "gseek",
     "programmers",
     "sangco",
     "kocw",
 ]
-
 # %%
-
 temp_df = pd.DataFrame(
     {
         "site": [],
+        "lec_sum": [],
         "view_sum": [],
         "view_mean": [],
-        "view_max": [],
-        "view_min": [],
-        "lec_sum": [],
         "price_mean": [],
         "like_mean": [],
         "score_mean": [],
     }
 )
-
 subject = "all"
 for file_name in file_list:
     df = pd.read_csv(f"../analyze_data/{subject}/{subject}_{file_name}.csv")
@@ -48,66 +43,49 @@ for file_name in file_list:
     lec_sum
     temp_dict["lec_sum"] = lec_sum
 
-    # 조회수 합계
-    view_sum = df["view"].sum()
-    view_sum
-    temp_dict["view_sum"] = view_sum
+    # 합계
+    # view_sum = df["view"].sum()
+    # view_sum
+    # temp_dict["view_sum"] = view_sum
 
-    # 조회수 평균
+    # 평균
     view_mean = int(df["view"].mean())
     view_mean
     temp_dict["view_mean"] = view_mean
 
-    # 조회수 MIN MAX
-    view_max = df["view"].max()
-    view_max
-    temp_dict["view_max"] = view_max
-
-    view_min = df["view"].min()
-    view_min
-    temp_dict["view_min"] = view_min
-
     columns_list = df.columns
 
-    # 가격 평균
     price_mean = 0
-    if "price" in columns_list:
-        price_mean = int(df["price"].mean())
-        price_mean
+
+    # price 평균
+    if df["price"].isnull().sum() == 0:
+        # price가 0이 아닌 것
+        price_df = df[df.price != 0]
+        price_mean = int(price_df["price"].mean())
         temp_dict["price_mean"] = price_mean
     else:
-        price_mean = np.nan
+        temp_dict["price_mean"] = np.nan
 
-    # 좋아요 평균 및 총 수
-    if "like" in columns_list:
+    # like 평균
+    if df["like"].isnull().sum() == 0:
         like_mean = int(df["like"].mean())
-        like_mean
         temp_dict["like_mean"] = like_mean
-        like_sum = int(df["like"].sum())
-        like_sum
-        temp_dict["like_sum"] = like_sum
-        # 전체 좋아요 / 전체 조회수
-        like_sum_division_view_sum = like_sum / view_sum
-        temp_dict["like_sum_division_view_sum"] = like_sum_division_view_sum
-
     else:
-        like_mean = np.nan
-        like_sum = np.nan
+        temp_dict["like_mean"] = np.nan
 
-    # 평점 평균
-    if "score" in columns_list:
-        # condition = df["score"] == -1
-        df["score"] = np.where(df["score"] == -1, np.nan, df["score"])
-        score_mean = int(df["score"].mean())
-        score_mean
+    # score 평균
+    if df["score"].isnull().sum() == 0:
+        like_df = df[df.score != -1]
+        score_mean = like_df["score"].mean()
         temp_dict["score_mean"] = score_mean
     else:
-        score_mean = np.nan
+        temp_dict["score_mean"] = np.nan
 
     temp_series = pd.Series(temp_dict)
     temp_df = temp_df.append(temp_series, ignore_index=True)
 
 temp_df
+
 
 # %%
 # 그래프 총 조회수
@@ -185,14 +163,18 @@ cf.go_offline(connected=True)
 import plotly.graph_objects as go
 import plotly.express as px
 
-site_view_sum = pd.DataFrame()
-site_view_sum["site"] = temp_df["site"]
-site_view_sum["view_sum"] = temp_df["view_sum"]
+site_lec_sum = pd.DataFrame()
+site_lec_sum["site"] = temp_df["site"]
+site_lec_sum["lec_sum"] = temp_df["lec_sum"]
 
-fig = px.bar(site_view_sum, x="view_sum", y="site", orientation="h")
-fig.show()
-# fig = go.Figure([go.Bar(x=site_view_sum["site"], y=site_view_sum["view_sum"])])
+fig = go.Figure()
+config = {"staticPlot": True}
+# fig = px.bar(site_lec_sum, x="lec_sum", y="site")
 # fig.show()
+fig.add_trace(go.Bar(x=site_lec_sum["site"], y=site_lec_sum["lec_sum"]))
+fig.show(config=config)
+# fig.write_html("file.html")
+
 # %%
 # 가로 누적 차트
 import plotly.express as px
@@ -205,9 +187,28 @@ all_view_mean = pd.DataFrame(
     }
 )
 
-df = px.data.tips()
 fig = px.bar(all_view_mean, x="view_mean", y="조회수평균", color="site", orientation="h", height=500)
+fig.show(config=config)
+fig.write_html("file.html")
+
+# %%
+# 세로 라벨 차트
+import plotly.graph_objects as go
+
+site_lec_sum = pd.DataFrame()
+site_lec_sum["site"] = temp_df["site"]
+site_lec_sum["lec_sum"] = temp_df["lec_sum"]
+
+x = site_lec_sum["site"]
+y = site_lec_sum["lec_sum"]
+
+# Use textposition='auto' for direct text
+fig = go.Figure(data=[go.Bar(x=x, y=y, text=y, textposition="auto",)])
+
 fig.show()
+
 
 # %%
 
+
+# %%
