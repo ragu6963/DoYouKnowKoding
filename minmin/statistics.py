@@ -2,6 +2,11 @@
 # %%
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib as mpl
+
+
+
 
 
 # %%
@@ -85,3 +90,20 @@ temp_df
 
 
 # 
+
+# %%
+#그래프 강의수
+site_view_sum=pd.DataFrame()
+site_view_sum["site"]=temp_df["site"]
+site_view_sum["view_sum"]=temp_df["view_sum"]
+site_view_sum
+fig=plt.figure()
+plt.bar(site_view_sum["site"], site_view_sum["view_sum"])
+plt.show()
+
+
+# %%
+import plotly
+
+# %%
+import plotly
