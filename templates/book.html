@@ -1,9 +1,9 @@
-<section id="bookpage" class="ftco-section bookcovor" style="position: relative;">
+<section id="bookpage" class="ftco-section bookcover" style="position: relative;">
     <!-- 이동버튼 -->
-    <button id="prevBtn" class="moveBtn btn btn-link btn-lg" style="left:1.5rem;">
+    <button id="prevBtn" class="moveBtn btn btn-link btn-lg" style="left:3rem;">
         <i class="fas fa-angle-left fa-3x"></i>
     </button>
-    <button id="nextBtn" class="moveBtn btn btn-link btn-lg" style="right:1.5rem;">
+    <button id="nextBtn" class="moveBtn btn btn-link btn-lg" style="right:3rem;">
         <i class="fas fa-angle-right fa-3x"></i>
     </button>
 
@@ -27,71 +27,93 @@
         <i class="fas fa-trash"></i>
     </button>
 
+    <!-- 1페이지를 표지로 만들 때 -->
     <div id="flipbook" class="flipbook">
-        <div class="hard" style="overflow:visible">
+        <div class="hard" style="overflow:visible; background-image:url('../static/images/book2-cover.png'); background-size:cover">
             <h1>
                 <!-- 1page -->
-                첫화면
+                표지
             </h1>
         </div>
-        <div class="hard">
+    <!-- 1페이지를 목차로 만들 때 -->
+    <!-- <div id="flipbook" class="flipbook">
+        <div class="hard" style="overflow:visible; background-image:url('../static/images/book2-right.png'); background-size:cover">
+            <h1>
+                1page
+                <div class="card text-center" style="width: auto; height: auto;">
+                    <img src="../static/images/coding.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">DO YOU KNOW KODING?</h5>
+                      <p class="card-text">Korea cODING language analysis report</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">파이썬</li>
+                      <li class="list-group-item">자바</li>
+                      <li class="list-group-item">C언어</li>
+                      <li class="list-group-item">기타</li>
+                      <li class="list-group-item">TMI</li>
+                    </ul>
+                  </div>
+            </h1>
+        </div> -->
+        <div class="hard" style="background-image:url('../static/images/book2-left.png'); background-size:cover">
             <h1>
                 <!-- 2page -->
                 파이썬1
             </h1>
         </div>
-        <div class="pg1">
+        <div class="pg1" style="background-image:url('../static/images/book2-right.png'); background-size:cover">
             <h1>
                 <!-- 3page -->
                 파이썬2
             </h1>
         </div>
-        <div class="pg2">
+        <div class="pg2" style="background-image:url('../static/images/book2-left.png'); background-size:cover">
             <h1>
                 <!-- 4page -->
                 자바1
             </h1>
         </div>
-        <div class="pg3">
+        <div class="pg3" style="background-image:url('../static/images/book2-right.png'); background-size:cover">
             <h1>
                 <!-- 5page -->
                 자바2
             </h1>
         </div>
-        <div class="pg4">
+        <div class="pg4" style="background-image:url('../static/images/book2-left.png'); background-size:cover">
             <h1>
                 <!-- 6page -->
-                c언어1
+                C언어1
             </h1>
         </div>
-        <div class="pg1">
+        <div class="pg1" style="background-image:url('../static/images/book2-right.png'); background-size:cover">
             <h1>
                 <!-- 7page -->
-                c언어2
+                C언어2
             </h1>
         </div>
-        <div class="pg2">
+        <div class="pg2" style="background-image:url('../static/images/book2-left.png'); background-size:cover">
             <h1>
                 <!-- 8page -->
                 기타1
             </h1>
         </div>
-        <div class="pg3">
+        <div class="pg3" style="background-image:url('../static/images/book2-right.png'); background-size:cover">
             <h1>
                 기타1
             </h1>
         </div>
-        <div class="pg4">
+        <div class="pg4" style="background-image:url('../static/images/book2-left.png'); background-size:cover">
             <h1>
                 기타1
             </h1>
         </div>
-        <div class="hard">
+        <div class="hard" style="background-image:url('../static/images/book2-right.png'); background-size:cover">
             <h1>
                 마지막1
             </h1>
         </div>
-        <div class="hard">
+        <div class="hard" style="background-image:url('../static/images/book2-left.png'); background-size:cover">
             <h1>
                 마지막2
             </h1>
@@ -106,10 +128,10 @@
     }
 
     .hard {
-        background-color: #00F;
+        background-color: rgba(255, 255, 255, 255);
     }
 
-    .bookcovor {
+    .bookcover {
         padding-top: 50px;
         padding-bottom: 50px;
     }
@@ -135,7 +157,7 @@
         right: 4%;
     }
 
-    .pg1 {
+    /* .pg1 {
         background-color: #FF0;
     }
 
@@ -149,5 +171,5 @@
 
     .pg4 {
         background-color: #F00
-    }
+    } */
 </style>
