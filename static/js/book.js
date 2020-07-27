@@ -6,18 +6,24 @@ var java_page = [4, 5]
 var c_page = [6, 7]
 var etc_page = [8, 9]
 var end_page = [10, 11]
+
+
+
 function hidden_bookmark(hiddenBtn) {
     $("#" + hiddenBtn).css('visibility', 'hidden')
 }
+
 function visible_bookmark(visibleBtnlist) {
     visibleBtnlist.forEach(visibleBtn => {
         $("#" + visibleBtn).css('visibility', 'visible')
     });
 }
+
 function move_python_bookmark(location, value) {
     $("#pythonBtn").removeAttr("style")
     $("#pythonBtn").css(location, value + "%")
 }
+
 function move_java_bookmark(location, value) {
     $("#javaBtn").removeAttr("style")
     $("#javaBtn").css(location, value + "%")
@@ -26,31 +32,38 @@ function move_c_bookmark(location, value) {
     $("#cBtn").removeAttr("style")
     $("#cBtn").css(location, value + "%")
 }
+
 function move_etc_bookmark(location, value) {
     $("#etcBtn").removeAttr("style")
     $("#etcBtn").css(location, value + "%")
 }
+
 $("#flipbook").turn({
     width: width,
     height: height,
     gradients: true,
 });
+
 // 종합 페이지
 $("#allBtn").click(function () {
     $("#flipbook").turn("page", all_page);
 });
+
 // 파이썬 페이지
 $("#pythonBtn").click(function () {
     $("#flipbook").turn("page", python_page);
 });
+
 // 자바 페이지
 $("#javaBtn").click(function () {
     $("#flipbook").turn("page", java_page);
 });
+
 // C 페이지
 $("#cBtn").click(function () {
     $("#flipbook").turn("page", c_page);
 });
+
 // 기타 페이지
 $("#etcBtn").click(function () {
     $("#flipbook").turn("page", etc_page);
@@ -60,9 +73,13 @@ $("#etcBtn").click(function () {
 $("#prevBtn").click(function () {
     $("#flipbook").turn("previous");
 });
+
 $("#nextBtn").click(function () {
     $("#flipbook").turn("next");
 });
+
+
+
 // 페이지 이동 이벤트
 $("#flipbook").bind("turning", function (event, page, view) {
     console.log(page + " 이동")
