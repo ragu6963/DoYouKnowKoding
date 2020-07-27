@@ -1,4 +1,4 @@
-# 만든이 : 이성철, 정우영
+# 만든이 : 이성철
 
 from bs4 import BeautifulSoup
 import urllib.request
@@ -8,10 +8,12 @@ import time
 import pandas as pd
 import numpy as np
 
-sangco_df = pd.DataFrame({"title": [], "view": [], "like": []})
+sangco_df = pd.DataFrame(
+    {"title": [], "view": [], "price": [], "score": [], "like": [], "college": [], "url": []}
+)
 
 url = "https://opentutorials.org/course/1"
-driver = webdriver.Chrome("./crawling/data/chromedriver")
+driver = webdriver.Chrome("crawling/data/chromedriver")
 
 with urllib.request.urlopen(url) as response:
     html = response.read()
@@ -33,7 +35,6 @@ for start, end in index_list:
         view = soup.select_one("span.count").get_text()
 
         sangco_dict["title"] = title
-        sangco_dict["view"] = view
 
         driver.get(url)
         time.sleep(1)
@@ -41,7 +42,6 @@ for start, end in index_list:
         iframe_url = driver.find_element_by_xpath(
             "//*[@id='facebook_like']/div/span/iframe"
         ).get_attribute("src")
-        # print(iframe_url)
 
         with urllib.request.urlopen(iframe_url) as response:
             html = response.read()
@@ -52,7 +52,16 @@ for start, end in index_list:
         else:
             like = like[:-1]
         print(f"{title} - {index} - {like}")
-        sangco_dict["like"] = like
+
+        sangco_dict = {
+            "title": title,
+            "view": view,
+            "price": np.nan,
+            "score": np.nan,
+            "like": like,
+            "college": np.nan,
+            "url": url,
+        }
         sangco_series = pd.Series(sangco_dict)
         sangco_df = sangco_df.append(sangco_series, ignore_index=True)
 

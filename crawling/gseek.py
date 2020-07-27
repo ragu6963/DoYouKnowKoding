@@ -1,12 +1,14 @@
 # 만든이 김민재
 import urllib.request
 import urllib.parse
-import json
+import numpy as np
 import pandas as pd
 from bs4 import BeautifulSoup
 from urllib.parse import quote
 
-geek_df = pd.DataFrame({"title": [], "view": [], "like": []})
+gseek_df = pd.DataFrame(
+    {"title": [], "view": [], "price": [], "score": [], "like": [], "college": [], "url": []}
+)
 
 main_url = "https://www.gseek.kr/learn/"
 url_list = [
@@ -21,10 +23,7 @@ for url in url_list:
 
     cards = soup.select("div.card-lift--hover")
     for card in cards:
-        # title = card.select_one("a.web").get_text()
-        # print(title)
         link = card.select_one("a.web")["href"]
-        # print(link)
 
         with urllib.request.urlopen(main_url + link) as response:
             html = response.read().decode("utf8")
@@ -34,6 +33,7 @@ for url in url_list:
         print(title)
         trs = soup.select("table.web > tbody > tr")
         trs_len = len(trs)
+
         # 조회수 평균값
         total = 0
         for tr in trs:
@@ -53,10 +53,19 @@ for url in url_list:
         for tr in trs:
             like = tr.select("td")[3].get_text()
             total += int(like)
+
         print(total // trs_len)
         like = total // trs_len
-        geek_dict = {"title": title, "view": view, "like": like}
-        geek_series = pd.Series(geek_dict)
-        geek_df = geek_df.append(geek_series, ignore_index=True)
+        gseek_dict = {
+            "title": title,
+            "view": view,
+            "price": np.nan,
+            "score": np.nan,
+            "like": like,
+            "college": np.nan,
+            "url": main_url + link,
+        }
+        gseek_series = pd.Series(gseek_dict)
+        gseek_df = gseek_df.append(gseek_series, ignore_index=True)
 
-geek_df.to_csv("./data/geek.csv", index=False)
+gseek_df.to_csv("./data/gseek.csv", index=False)
