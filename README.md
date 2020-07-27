@@ -8,3 +8,5 @@
 `pip install bs4`       
 `pip install pandas`        
 `pip install flask`
+`pip install chart_studio`
+`pip install cufflinks`

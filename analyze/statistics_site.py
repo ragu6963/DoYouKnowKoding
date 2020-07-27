@@ -183,11 +183,20 @@ all_view_mean = pd.DataFrame(
     {
         "조회수평균": ["0", "0", "0", "0", "0", "0", "0"],
         "site": temp_df.sort_values(by=["view_mean"], axis=0)["site"][:],
-        "view_mean": temp_df.sort_values(by=["view_mean"], axis=0)["view_mean"][:],
+        "view_mean": temp_df.sort_values(by=["view_mean"], axis=0)["view_mean"][
+            :
+        ],
     }
 )
 
-fig = px.bar(all_view_mean, x="view_mean", y="조회수평균", color="site", orientation="h", height=500)
+fig = px.bar(
+    all_view_mean,
+    x="view_mean",
+    y="조회수평균",
+    color="site",
+    orientation="h",
+    height=500,
+)
 fig.show(config=config)
 fig.write_html("file.html")
 
