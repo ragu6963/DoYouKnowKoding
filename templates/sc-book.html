@@ -1,0 +1,162 @@
+<section id="bookpage" class="ftco-section bookcover" style="position: relative;">
+    <!-- 이동버튼 -->
+    <button id="prevBtn" class="moveBtn btn btn-link btn-lg" style="left:3rem;">
+        <i class="fas fa-angle-left fa-3x"></i>
+    </button>
+    <button id="nextBtn" class="moveBtn btn btn-link btn-lg" style="right:3rem;">
+        <i class="fas fa-angle-right fa-3x"></i>
+    </button>
+
+    <!-- 북마크 -->
+    <button id="allBtn" class="markBtn bttn-material-flat bttn-md bttn-royal bttn-no-outline"
+        style="left:5%; visibility: hidden;">
+        <i class="fas fa-book"></i>
+    </button>
+    <button id="pythonBtn" class="markBtn bttn-material-flat bttn-md bttn-primary bttn-no-outline" style="right:10%">
+        <i class="fab fa-python"></i>
+    </button>
+    <button id="javaBtn" class="markBtn bttn-material-flat bttn-md bttn-danger bttn-no-outline" style="right:15%">
+        <i class="fab fa-java"></i>
+    </button>
+    <button id="cBtn" class="markBtn bttn-material-flat bttn-md bttn-success bttn-no-outline" style="right:20%">
+        <i class="fas fa-copyright"></i>
+    </button>
+    <button id="etcBtn" class="markBtn bttn-material-flat bttn-md bttn-warning bttn-no-outline" style="right:25%">
+        <i class="fas fa-comment-dots"></i>
+    </button>
+
+    <div id="flipbook" class="flipbook">
+        <div class="hard" style="overflow:visible; background-image:url('../static/images/book2-cover.png'); background-size:cover">
+            <h1>
+                <!-- 1page -->
+            </h1>
+        </div>
+        <div class="pg-even">
+            <h1>
+                <!-- 2page -->
+                <ul class="language-info">
+                    <h1 class="display-4">Python 1</h1>
+                    <p>특징</p>
+                    <p>인사이트</p>
+                      <ul>
+                        <li>1) ~하다</li>
+                        <li>2) !!하다</li>
+                      </ul>
+                  </ul>
+            </h1>
+        </div>
+        <div class="pg-odd">
+            <h1>
+                <!-- 3page -->
+                파이썬2
+            </h1>
+        </div>
+        <div class="pg-even">
+            <h1>
+                <!-- 4page -->
+                자바1
+            </h1>
+        </div>
+        <div class="pg-odd">
+            <h1>
+                <!-- 5page -->
+                자바2
+            </h1>
+        </div>
+        <div class="pg-even">
+            <h1>
+                <!-- 6page -->
+                C언어1
+            </h1>
+        </div>
+        <div class="pg-odd">
+            <h1>
+                <!-- 7page -->
+                C언어2
+            </h1>
+        </div>
+        <div class="pg-even">
+            <h1>
+                <!-- 8page -->
+                기타1
+            </h1>
+        </div>
+        <div class="pg-odd">
+            <h1>
+                기타2
+            </h1>
+        </div>
+        <div class="pg-even">
+            <h1>
+                기타3
+            </h1>
+        </div>
+        <div class="pg-odd">
+            <h1>
+                마지막4
+            </h1>
+        </div>
+        <div class="pg-even">
+            <h1>
+                마지막1
+            </h1>
+        </div>
+    </div>
+
+</section>
+
+<style>
+    html {
+        overflow-x: hidden
+    }
+
+    .hard {
+        background-color: rgb(255, 255, 255);
+    }
+
+    .bookcovor {
+        padding-top: 75px;
+        padding-bottom: 25px;
+    }
+
+    .flipbook {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .moveBtn {
+        position: absolute;
+        top: 50%;
+        z-index: 2;
+        color: grey !important;
+        opacity: 0.5;
+    }
+
+    .markBtn {
+        position: absolute;
+        z-index: 0;
+        height: 3.5rem;
+        margin-top: -50px
+    }
+
+    .pg-even {
+        background-image: url('../static/images/rightborder.png');
+        background-position: right top;
+        background-size: cover
+    }
+
+    .pg-odd {
+        background-image: url('../static/images/leftborder.png');
+        background-position: left top;
+        background-size: cover
+    }
+
+    .language-info {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        margin-left: 10px;
+        margin-right: 10px;
+        font-family: ""
+    }
+
+</style>

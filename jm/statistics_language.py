@@ -22,9 +22,6 @@ temp_df = pd.DataFrame(
         "price_std": [],
     }
 )
-no_free_df = pd.DataFrame()
-free_df = pd.DataFrame()
-
 for language_name in language_list:
     df = pd.read_csv(f"../analyze_data/{language_name}/{language_name}_all.csv")
     temp_dict = {}
@@ -116,89 +113,7 @@ for language_name in language_list:
     temp_series = pd.Series(temp_dict)
     temp_df = temp_df.append(temp_series, ignore_index=True)
 
-    # 유료강의 무료강의 나누기
-    # 기타 강의 제외
-    if language_name != "etc":
-        temp_free_df = df[df.price == 0]
-        free_df = free_df.append(temp_free_df)
-        free_df = free_df.append(df[df.price.isnull()])
-
-        temp_no_free_df = df[df.price > 0]
-        no_free_df = no_free_df.append(temp_no_free_df)
-
-    python_free_df = free_df[free_df.subject == "파이썬"]
-    java_free_df = free_df[free_df.subject == "자바"]
-    c_free_df = free_df[free_df.subject == "C언어"]
-
-    python_no_free_df = no_free_df[no_free_df.subject == "파이썬"]
-    java_no_free_df = no_free_df[no_free_df.subject == "자바"]
-    c_no_free_df = no_free_df[no_free_df.subject == "C언어"]
 temp_df
-# free_df
-
-
-# %%
-# 무료 유료 평균 조회수 비교
-import plotly.graph_objects as go
-
-
-langauge = ["파이썬", "자바", "C언어"]
-free_view_mean_list = [
-    free_df[free_df.subject == "파이썬"].view.mean(),
-    free_df[free_df.subject == "자바"].view.mean(),
-    free_df[free_df.subject == "C언어"].view.mean(),
-]
-no_free_view_mean_list = [
-    no_free_df[no_free_df.subject == "파이썬"].view.mean(),
-    no_free_df[no_free_df.subject == "자바"].view.mean(),
-    no_free_df[no_free_df.subject == "C언어"].view.mean(),
-]
-
-fig = go.Figure(
-    data=[
-        go.Bar(name="무료", x=langauge, y=free_view_mean_list),
-        go.Bar(name="유료", x=langauge, y=no_free_view_mean_list),
-    ]
-)
-# Change the bar mode
-fig.update_layout(barmode="group")
-fig.show()
-
-
-# %%
-# 무료 유료 강의 수 비교
-import plotly.graph_objects as go
-
-langauge = ["파이썬", "자바", "C언어"]
-free_lec_sum_list = [
-    free_df[free_df.subject == "파이썬"].shape[0],
-    free_df[free_df.subject == "자바"].shape[0],
-    free_df[free_df.subject == "C언어"].shape[0],
-]
-no_free_lec_sum_list = [
-    no_free_df[no_free_df.subject == "파이썬"].shape[0],
-    no_free_df[no_free_df.subject == "자바"].shape[0],
-    no_free_df[no_free_df.subject == "C언어"].shape[0],
-]
-
-fig = go.Figure(
-    data=[
-        go.Bar(name="무료", x=langauge, y=free_lec_sum_list),
-        go.Bar(name="유료", x=langauge, y=no_free_lec_sum_list),
-    ]
-)
-# Change the bar mode
-fig.update_layout(barmode="group")
-fig.show()
-
-
-# %%
-# 강의 수 비교
-import plotly.graph_objects as go
-
-barchart_df = temp_df[temp_df.subject != "etc"]
-fig = go.Figure([go.Bar(x=barchart_df.subject, y=barchart_df.lec_sum)])
-fig.show()
 
 
 # %%
