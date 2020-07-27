@@ -28,7 +28,8 @@ temp_df = pd.DataFrame(
 # %%
 
 for file_name in file_list:
-    df = pd.read_csv(f"../analyze_data/all/{file_name}.csv")
+    subject = 'python'
+    df = pd.read_csv(f"../analyze_data/{subject}/{subject}_{file_name}.csv")
 
     temp_dict = {}
 
