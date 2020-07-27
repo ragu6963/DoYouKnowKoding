@@ -33,6 +33,7 @@ function move_etc_bookmark(location, value) {
 $("#flipbook").turn({
     width: width,
     height: height,
+    gradients: true,
 });
 // 종합 페이지
 $("#allBtn").click(function () {
