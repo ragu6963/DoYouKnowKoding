@@ -64,5 +64,5 @@ for category_url, last_page in category_list:
             inflearn_df = inflearn_df.append(inflearn_series, ignore_index=True)
             print(title)
 
-inflearn_df.to_csv("data/inflearn.csv", index=False)
+inflearn_df.to_csv("crawling_data/inflearn.csv", index=False)
 

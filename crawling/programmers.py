@@ -56,4 +56,4 @@ for item in items:
         programmers_series = pd.Series(programmers_dict)
         programmers_df = programmers_df.append(programmers_series, ignore_index=True)
 
-programmers_df.to_csv("data/programmers.csv", index=False)
+programmers_df.to_csv("crawling_data/programmers.csv", index=False)

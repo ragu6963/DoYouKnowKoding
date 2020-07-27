@@ -8,7 +8,6 @@ var etc_page = [8, 9]
 var end_page = [10, 11]
 
 
-
 function hidden_bookmark(hiddenBtn) {
     $("#" + hiddenBtn).css('visibility', 'hidden')
 }
@@ -38,10 +37,11 @@ function move_etc_bookmark(location, value) {
     $("#etcBtn").css(location, value + "%")
 }
 
+// turn js 설정
 $("#flipbook").turn({
     width: width,
     height: height,
-    gradients: true,
+    duration: 1200,
 });
 
 // 종합 페이지
@@ -77,8 +77,6 @@ $("#prevBtn").click(function () {
 $("#nextBtn").click(function () {
     $("#flipbook").turn("next");
 });
-
-
 
 // 페이지 이동 이벤트
 $("#flipbook").bind("turning", function (event, page, view) {

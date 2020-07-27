@@ -11,15 +11,13 @@ def filter_all(file_list, python_list, java_list, c_list):
     c_df = pd.DataFrame()
 
     for file_name in file_list:
-        df = pd.read_csv(f"./data/{file_name}.csv", encoding="utf-8")
+        df = pd.read_csv(f"crawling_data/{file_name}.csv", encoding="utf-8")
 
         for key in python_list:
             condition = df["title"].str.contains(key, na=False)
             temp_df = df[condition]
             python_df = python_df.append(temp_df, ignore_index=True)
-            python_df = python_df.drop_duplicates(
-                ["title", "college"], keep="first"
-            )
+            python_df = python_df.drop_duplicates(["title", "college"], keep="first")
             # if file_name == "kocw":
             #     condition = df["title"].str.contains(key, na=False)
             #     temp_df = df[condition]
@@ -33,18 +31,12 @@ def filter_all(file_list, python_list, java_list, c_list):
 
         for key in java_list:
             condition = df["title"].str.contains(key, na=False)
-            condition2 = (
-                df["title"].str.upper().str.contains("JAVASCRIPT", na=False)
-            )
+            condition2 = df["title"].str.upper().str.contains("JAVASCRIPT", na=False)
             condition3 = df["title"].str.contains("자바스크립트", na=False)
 
-            temp_df = df[
-                condition & (condition2 == False) & (condition3 == False)
-            ]
+            temp_df = df[condition & (condition2 == False) & (condition3 == False)]
             java_df = java_df.append(temp_df, ignore_index=True)
-            java_df = java_df.drop_duplicates(
-                ["title", "college"], keep="first"
-            )
+            java_df = java_df.drop_duplicates(["title", "college"], keep="first")
             # if file_name == "kocw":
             #     condition = df["title"].str.contains(key, na=False)
             #     temp_df = df[condition]

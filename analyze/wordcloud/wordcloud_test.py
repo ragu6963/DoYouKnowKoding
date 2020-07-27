@@ -71,7 +71,7 @@ from konlpy.tag import Komoran
 for language_name in language_list[0:1]:
     title_list = []
     title_str = ""
-    df = pd.read_csv(f"../analyze_data/{language_name}/{language_name}_all.csv")
+    df = pd.read_csv(f"../../analyze_data/{language_name}/{language_name}_all.csv")
     titles = df["title"]
     for title in titles:
         title_list.append(title)
@@ -101,7 +101,7 @@ from soynlp.noun import LRNounExtractor_v2
 
 for language_name in language_list[:1]:
     title_list = []
-    df = pd.read_csv(f"../analyze_data/{language_name}/{language_name}_all.csv")
+    df = pd.read_csv(f"../../analyze_data/{language_name}/{language_name}_all.csv")
     titles = df["title"]
     for title in titles:
         title_list.append(title)
@@ -124,7 +124,7 @@ from konlpy.tag import Okt
 for language_name in language_list[:1]:
     title_list = []
     title_str = ""
-    df = pd.read_csv(f"../analyze_data/{language_name}/{language_name}_all.csv")
+    df = pd.read_csv(f"../../analyze_data/{language_name}/{language_name}_all.csv")
     titles = df["title"]
     for title in titles:
         title_list.append(title)

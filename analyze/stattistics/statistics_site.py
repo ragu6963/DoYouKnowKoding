@@ -31,7 +31,7 @@ subject = "all"
 
 
 for file_name in file_list:
-    df = pd.read_csv(f"../analyze_data/{subject}/{subject}_{file_name}.csv")
+    df = pd.read_csv(f"../../analyze_data/{subject}/{subject}_{file_name}.csv")
 
     if df["site"].count() == 0:
         continue
