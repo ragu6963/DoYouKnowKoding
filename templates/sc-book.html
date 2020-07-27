@@ -29,69 +29,76 @@
         <div class="hard" style="overflow:visible; background-image:url('../static/images/book2-cover.png'); background-size:cover">
             <h1>
                 <!-- 1page -->
-                표지
             </h1>
         </div>
-        <div class="hard" style="background-image:url('../static/images/book2-left.png'); background-size:cover">
+        <div class="pg-even">
             <h1>
                 <!-- 2page -->
-                파이썬1
+                <ul class="language-info">
+                    <h1 class="display-4">Python 1</h1>
+                    <p>특징</p>
+                    <p>인사이트</p>
+                      <ul>
+                        <li>1) ~하다</li>
+                        <li>2) !!하다</li>
+                      </ul>
+                  </ul>
             </h1>
         </div>
-        <div class="pg1" style="background-image:url('../static/images/book2-right.png'); background-size:cover">
+        <div class="pg-odd">
             <h1>
                 <!-- 3page -->
                 파이썬2
             </h1>
         </div>
-        <div class="pg2" style="background-image:url('../static/images/book2-left.png'); background-size:cover">
+        <div class="pg-even">
             <h1>
                 <!-- 4page -->
                 자바1
             </h1>
         </div>
-        <div class="pg3" style="background-image:url('../static/images/book2-right.png'); background-size:cover">
+        <div class="pg-odd">
             <h1>
                 <!-- 5page -->
                 자바2
             </h1>
         </div>
-        <div class="pg4" style="background-image:url('../static/images/book2-left.png'); background-size:cover">
+        <div class="pg-even">
             <h1>
                 <!-- 6page -->
                 C언어1
             </h1>
         </div>
-        <div class="pg1" style="background-image:url('../static/images/book2-right.png'); background-size:cover">
+        <div class="pg-odd">
             <h1>
                 <!-- 7page -->
                 C언어2
             </h1>
         </div>
-        <div class="pg2" style="background-image:url('../static/images/book2-left.png'); background-size:cover">
+        <div class="pg-even">
             <h1>
                 <!-- 8page -->
                 기타1
             </h1>
         </div>
-        <div class="pg3" style="background-image:url('../static/images/book2-right.png'); background-size:cover">
+        <div class="pg-odd">
             <h1>
-                기타1
+                기타2
             </h1>
         </div>
-        <div class="pg4" style="background-image:url('../static/images/book2-left.png'); background-size:cover">
+        <div class="pg-even">
             <h1>
-                기타1
+                기타3
             </h1>
         </div>
-        <div class="hard" style="background-image:url('../static/images/book2-right.png'); background-size:cover">
+        <div class="pg-odd">
+            <h1>
+                마지막4
+            </h1>
+        </div>
+        <div class="pg-even">
             <h1>
                 마지막1
-            </h1>
-        </div>
-        <div class="hard" style="background-image:url('../static/images/book2-left.png'); background-size:cover">
-            <h1>
-                마지막2
             </h1>
         </div>
     </div>
@@ -104,7 +111,7 @@
     }
 
     .hard {
-        background-color: rgba(255, 255, 255, 255);
+        background-color: rgb(255, 255, 255);
     }
 
     .bookcovor {
@@ -132,19 +139,24 @@
         margin-top: -50px
     }
 
-    /* .pg1 {
-        background-color: #FF0;
+    .pg-even {
+        background-image: url('../static/images/rightborder.png');
+        background-position: right top;
+        background-size: cover
     }
 
-    .pg2 {
-        background-color: #0FF;
+    .pg-odd {
+        background-image: url('../static/images/leftborder.png');
+        background-position: left top;
+        background-size: cover
     }
 
-    .pg3 {
-        background-color: #F0F;
+    .language-info {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        margin-left: 10px;
+        margin-right: 10px;
+        font-family: ""
     }
 
-    .pg4 {
-        background-color: #F00
-    } */
 </style>
