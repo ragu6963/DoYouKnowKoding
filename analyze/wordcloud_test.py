@@ -35,7 +35,7 @@ def displayWordCloud(
         width=width,
         height=height,
         stopwords=stopwords_kr,
-        mask=c_mask,
+        mask=python_mask,
         min_font_size=4,
         repeat=True,
     ).generate(data)

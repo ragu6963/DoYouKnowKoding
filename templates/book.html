@@ -8,25 +8,22 @@
     </button>
 
     <!-- 북마크 -->
-    <button id="indexBtn" class="markBtn bttn-material-circle bttn-md bttn-primary bttn-no-outline" style="top:5%">
+    <button id="allBtn" class="markBtn bttn-material-flat bttn-md bttn-royal bttn-no-outline"
+        style="left:5%; visibility: hidden;">
         <i class="fas fa-book"></i>
     </button>
-    <button id="pythonBtn" class="markBtn bttn-material-circle bttn-md bttn-primary bttn-no-outline" style="top:10%">
+    <button id="pythonBtn" class="markBtn bttn-material-flat bttn-md bttn-primary bttn-no-outline" style="right:10%">
         <i class="fab fa-python"></i>
     </button>
-    <button id="javaBtn" class="markBtn bttn-material-circle bttn-md bttn-danger bttn-no-outline" style="top:15%">
+    <button id="javaBtn" class="markBtn bttn-material-flat bttn-md bttn-danger bttn-no-outline" style="right:15%">
         <i class="fab fa-java"></i>
     </button>
-    <!-- <button id="cBtn" class="markBtn bttn-material-circle bttn-md bttn-no-outline"
-        style=" background: url('./static/images/c.png') no-repeat center;">
-    </button> -->
-    <button id="cBtn" class="markBtn bttn-material-circle bttn-md bttn-success bttn-no-outline" style="top:20%">
+    <button id="cBtn" class="markBtn bttn-material-flat bttn-md bttn-success bttn-no-outline" style="right:20%">
         <i class="fas fa-copyright"></i>
     </button>
-    <button id="etcBtn" class="markBtn bttn-material-circle bttn-md bttn-success bttn-no-outline" style="top:25%">
-        <i class="fas fa-trash"></i>
+    <button id="etcBtn" class="markBtn bttn-material-flat bttn-md bttn-warning bttn-no-outline" style="right:25%">
+        <i class="fas fa-comment-dots"></i>
     </button>
-
     <div id="flipbook" class="flipbook">
         <div class="hard" style="overflow:visible">
             <h1>
@@ -38,7 +35,7 @@
             <h1>
                 <!-- 2page -->
                 파이썬1
-            </h1>
+            </h1>+
         </div>
         <div class="pg1">
             <h1>
@@ -110,8 +107,8 @@
     }
 
     .bookcovor {
-        padding-top: 50px;
-        padding-bottom: 50px;
+        padding-top: 75px;
+        padding-bottom: 25px;
     }
 
     .flipbook {
@@ -121,7 +118,7 @@
 
     .moveBtn {
         position: absolute;
-        top: 45%;
+        top: 50%;
         z-index: 2;
         color: grey !important;
         opacity: 0.5;
@@ -129,10 +126,9 @@
 
     .markBtn {
         position: absolute;
-        z-index: 2;
-        /*top: 2rem;*/
-        height: 5rem;
-        right: 4%;
+        z-index: 0;
+        height: 3.5rem;
+        margin-top: -50px
     }
 
     .pg1 {
