@@ -34,7 +34,7 @@ temp_df = pd.DataFrame(
 )
 subject = "c"
 for file_name in file_list:
-    df = pd.read_csv(f"../analyze_data/{subject}/{subject}_{file_name}.csv")
+    df = pd.read_csv(f"../../analyze_data/{subject}/{subject}_{file_name}.csv")
 
     if df["site"].count() == 0:
         continue
@@ -49,9 +49,9 @@ for file_name in file_list:
     temp_dict["lec_sum"] = lec_sum
 
     # 합계
-    # view_sum = df["view"].sum()
-    # view_sum
-    # temp_dict["view_sum"] = view_sum
+    view_sum = df["view"].sum()
+    view_sum
+    temp_dict["view_sum"] = view_sum
 
     # 평균
     view_mean = int(df["view"].mean())
