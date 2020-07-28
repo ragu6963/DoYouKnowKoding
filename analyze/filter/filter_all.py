@@ -24,7 +24,7 @@ def filter_all(file_list, python_list, java_list, c_list):
         for key in java_list:
             condition = df["title"].str.lower().str.contains(key, na=False)
             condition2 = (
-                df["title"].str.lower().str.contains("JAVASCRIPT", na=False)
+                df["title"].str.lower().str.contains("javascript", na=False)
             )
             condition3 = (
                 df["title"].str.lower().str.contains("자바스크립트", na=False)
