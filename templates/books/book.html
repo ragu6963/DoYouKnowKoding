@@ -11,13 +11,7 @@
             <!-- cover -->
             <div class="book-wrap">
                 <div class="cover-content">
-                    <span>Do You Know Koding?</span>
-                    <br>
-                    <h1>
-                        <strong class="strong-color">K</strong>orean c<strong class="strong-color">ODING</strong>
-                        <br>
-                        language analysis report
-                    </h1>
+                    {% include "books/pages/page_1.html" %}
                 </div>
             </div>
         </div>
@@ -26,18 +20,7 @@
             <!-- 소개 페이지-->
             <div class="book-wrap">
                 <div class="page-content nanum-font">
-                    <h2>
-                        Analyzing lecture sites in Korea, compare the popularity of Python, Java, and C languages.
-                    </h2>
-                    <ul>
-                        <h3>Data From</h3>
-                        <li>edwith</li>
-                        <li>groom</li>
-                        <li>inflearn</li>
-                        <li>kocw</li>
-                        <li>programmers</li>
-                        <li>sangco</li>
-                    </ul>
+                    {% include "books/pages/page_2.html" %}
                 </div>
             </div>
         </div>
@@ -45,11 +28,7 @@
             <!-- 3page -->
             <div class="book-wrap">
                 <div class="page-content nanum-font">
-                    <h1>
-                        우리나라의 강의 사이트들을 분석하여
-                        <br>
-                        프로그래밍 교육시장의 동향을 알아본다.
-                    </h1>
+                    {% include "books/pages/page_3.html" %}
                 </div>
             </div>
         </div>
@@ -57,7 +36,7 @@
             <!-- 4page -->
             <div class="book-wrap">
                 <div class="page-content nanum-font">
-                    <img src="static/images/charts/test.png" alt="">
+                    {% include "books/pages/page_4.html" %}
                 </div>
             </div>
         </div>
@@ -65,7 +44,7 @@
             <!-- 5page -->
             <div class="book-wrap">
                 <div class="page-content nanum-font">
-                    {% include "books/pages/page_5.html" %} 
+                    {% include "books/pages/page_5.html" %}
                 </div>
             </div>
         </div>
@@ -150,11 +129,14 @@
     .strong-color {
         color: #448ef6;
     }
+    .strong-color {
+        color: #298312;
+    }
 
     .cover-content {
         position: absolute;
         top: 30%;
-        left: 25%;
+        left: 25%; 
         height: 100%;
         width: 100%;
     }

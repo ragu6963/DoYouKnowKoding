@@ -32,7 +32,7 @@ temp_df = pd.DataFrame(
         "score_mean": [],
     }
 )
-subject = "java"
+subject = "c"
 for file_name in file_list:
     df = pd.read_csv(f"../analyze_data/{subject}/{subject}_{file_name}.csv")
 
