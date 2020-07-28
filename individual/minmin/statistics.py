@@ -6,11 +6,6 @@ import matplotlib.pyplot as plt
 import matplotlib as mpl
 
 
-
-
-
-
-
 # %%
 file_list = [
     "inflearn",
@@ -32,7 +27,7 @@ temp_df = pd.DataFrame(
         "score_mean": [],
     }
 )
-subject = "python"
+subject = "c"
 for file_name in file_list:
     df = pd.read_csv(f"../../analyze_data/{subject}/{subject}_{file_name}.csv")
 
@@ -92,24 +87,19 @@ for file_name in file_list:
 temp_df
 
 
-
-
-# 
-
 # %%
-#그래프 강의수
-site_view_sum=pd.DataFrame()
-site_view_sum["site"]=temp_df["site"]
-site_view_sum["view_sum"]=temp_df["view_sum"]
+# 그래프 강의수
+site_view_sum = pd.DataFrame()
+site_view_sum["site"] = temp_df["site"]
+site_view_sum["view_sum"] = temp_df["view_sum"]
 site_view_sum
-fig=plt.figure()
+fig = plt.figure()
 plt.bar(site_view_sum["site"], site_view_sum["view_sum"])
 plt.show()
 
 
-
 # %%
-#사이트별 강의수(pie그래프)
+# 사이트별 강의수(pie그래프)
 import plotly.graph_objects as go
 
 site_lec_sum = pd.DataFrame()
@@ -120,39 +110,45 @@ labels = site_lec_sum["site"]
 values = site_lec_sum["lec_sum"]
 
 
-fig = go.Figure(data=[go.Pie(labels=labels, values=values, textinfo='label+percent',
-                             insidetextorientation='radial'
-                            )])
+fig = go.Figure(
+    data=[
+        go.Pie(
+            labels=labels,
+            values=values,
+            textinfo="label+percent",
+            insidetextorientation="radial",
+        )
+    ]
+)
 
 fig.show()
 
 
-
 # %%
 # 사이트별 강의수와 조회수 비교
-plt.rcParams["font.family"]='NanumBarunGothic'
-plt.rcParams["font.size"]=10           
-plt.rcParams["figure.figsize"]=(10,4)
+plt.rcParams["font.family"] = "NanumBarunGothic"
+plt.rcParams["font.size"] = 10
+plt.rcParams["figure.figsize"] = (10, 4)
 
-site_view_mean=pd.DataFrame()
+site_view_mean = pd.DataFrame()
 site_view_mean["site"] = temp_df["site"]
 site_view_mean["lec_sum"] = temp_df["lec_sum"]
-site_view_mean["view_sum"] = temp_df["view_sum"]
+site_view_mean["view_mean"] = temp_df["view_mean"]
 
 
 x = site_view_mean["site"]
-y1=site_view_mean["lec_sum"]
-y2=site_view_mean["view_sum"]
+y1 = site_view_mean["lec_sum"]
+y2 = site_view_mean["view_mean"]
 
 fig, ax1 = plt.subplots()
 ax2 = ax1.twinx()
 
 
-line1=ax1.bar(x,y1,alpha=0.5)
-line2=ax2.plot(x,y2,'go--',color='green')
+line1 = ax1.bar(x, y1, alpha=0.5)
+line2 = ax2.plot(x, y2, "go--", color="green")
 
-plt.legend((line1[0], line2[0]), ('강의수', '조회수'),loc='upper center')
-plt.grid(True,alpha=0.5)
+plt.legend((line1[0], line2[0]), ("강의수", "조회수"), loc="upper center")
+plt.grid(True, alpha=0.5)
 
 plt.show()
 
@@ -160,4 +156,3 @@ plt.show()
 
 
 # %%
-    

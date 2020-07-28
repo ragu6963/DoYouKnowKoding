@@ -15,19 +15,18 @@ file_list = [
 ]
 
 python_list = [
-    "Python",
+    "python",
     "파이썬",
 ]
 java_list = [
-    "Java",
+    "java",
     "자바",
 ]
 c_list = [
     "c언어",
     "c 언어",
-    "C#",
-    "c\+\+",
     "c#",
+    "c\+\+",
     "c 프로그래밍",
     "c프로그래밍",
 ]
