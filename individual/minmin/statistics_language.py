@@ -23,7 +23,7 @@ temp_df = pd.DataFrame(
     }
 )
 for language_name in language_list:
-    df = pd.read_csv(f"../analyze_data/{language_name}/{language_name}_all.csv")
+    df = pd.read_csv(f"../../analyze_data/{language_name}/{language_name}_all.csv")
     temp_dict = {}
     temp_dict["subject"] = language_name
 
