@@ -38,16 +38,16 @@ for language_name in language_list:
     temp_dict["lec_sum"] = lec_sum
 
     # view 최댓값
-    # view_max = df["view"].max()
-    # temp_dict["view_max"] = view_max
+    view_max = df["view"].max()
+    temp_dict["view_max"] = view_max
 
     # view 최솟값
-    # view_min = df["view"].min()
-    # temp_dict["view_min"] = view_min
+    view_min = df["view"].min()
+    temp_dict["view_min"] = view_min
 
     # view 합계
-    # view_sum = df["view"].sum()
-    # temp_dict["view_sum"] = view_sum
+    view_sum = df["view"].sum()
+    temp_dict["view_sum"] = view_sum
 
     # view 평균
     view_mean = int(df["view"].mean())
@@ -143,7 +143,6 @@ temp_df
 # 무료 유료 평균 조회수 비교
 import plotly.graph_objects as go
 
-
 langauge = ["파이썬", "자바", "C언어"]
 free_view_mean_list = [
     free_df[free_df.subject == "파이썬"].view.mean(),
@@ -165,52 +164,86 @@ fig = go.Figure(
 fig.update_layout(barmode="group")
 fig.show()
 
-
 # %%
-# 무료 유료 강의 수 비교
+# 무료 유료 총 강의 수 비교
+
 import plotly.graph_objects as go
 
-langauge = ["파이썬", "자바", "C언어"]
+langauge = ["Python", "Java", "C language"]
+
 free_lec_sum_list = [
     free_df[free_df.subject == "파이썬"].shape[0],
     free_df[free_df.subject == "자바"].shape[0],
     free_df[free_df.subject == "C언어"].shape[0],
 ]
+
 no_free_lec_sum_list = [
     no_free_df[no_free_df.subject == "파이썬"].shape[0],
     no_free_df[no_free_df.subject == "자바"].shape[0],
     no_free_df[no_free_df.subject == "C언어"].shape[0],
 ]
+lanugage_lec_sum_df = temp_df[temp_df.subject != "etc"]
 
-fig = go.Figure(
-    data=[
-        go.Bar(
-            name="무료",
-            x=langauge,
-            y=free_lec_sum_list,
-            text=free_lec_sum_list,
-            textposition="auto",
-        ),
-        go.Bar(
-            name="유료",
-            x=langauge,
-            y=no_free_lec_sum_list,
-            text=no_free_lec_sum_list,
-            textposition="auto",
-        ),
-    ],
+fig = go.Figure()
+
+fig.add_trace(
+    go.Bar(
+        x=langauge,
+        y=lanugage_lec_sum_df.lec_sum,
+        name="총 강의수",
+        marker_color="#4C92F5",
+        marker_line_color="rgb(8,48,107)",
+        marker_line_width=2,
+        opacity=0.6,
+        showlegend=True,
+    )
 )
-# fig.update_traces(texttemplate="%{text:.2s}", textposition="outside")
-# fig.update_layout(uniformtext_minsize=8, uniformtext_mode="hide")
+fig.add_trace(
+    go.Bar(
+        x=langauge,
+        y=free_lec_sum_list,
+        name="무료 강의수",
+        marker_color="rgb(76, 245, 118)",
+        marker_line_color="rgb(8, 107, 31)",
+        marker_line_width=2,
+        opacity=0.6,
+        showlegend=True,
+    )
+)
+
+fig.add_trace(
+    go.Bar(
+        x=langauge,
+        y=no_free_lec_sum_list,
+        name="유료 강의수",
+        marker_color="rgb(245, 76, 76)",
+        marker_line_color="rgb(107, 8, 8)",
+        marker_line_width=2,
+        opacity=0.6,
+        showlegend=True,
+    )
+)
+fig.update_layout(legend=dict(yanchor="top", xanchor="right", x=0.99, y=0.99))
 fig.update_layout(barmode="group")
 fig.show()
-# fig.write_html("../static/images/charts/file.html")
 # %%
 # 강의 수 비교
 import plotly.graph_objects as go
 
-barchart_df = temp_df[temp_df.subject != "etc"]
-fig = go.Figure([go.Bar(x=barchart_df.subject, y=barchart_df.lec_sum)])
+langauge = ["Python", "Java", "C language"]
+lanugage_lec_sum_df = temp_df[temp_df.subject != "etc"]
+
+fig = go.Figure(data=[go.Bar(x=langauge, y=lanugage_lec_sum_df.lec_sum,)],)
+fig.update_traces(
+    marker_color="#4C92F5",
+    marker_line_color="rgb(8,48,107)",
+    marker_line_width=2,
+    opacity=0.6,
+    name="강의수",
+    showlegend=True,
+)
+
+fig.update_layout(legend=dict(yanchor="top", xanchor="right", x=0.99, y=0.99))
 fig.show()
 
 
