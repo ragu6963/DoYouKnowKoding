@@ -130,9 +130,8 @@ fig.show()
 
 # %%
 # 사이트별 강의수와 조회수 비교
-# subject = "c"
 plt.rcParams["font.family"]='NanumBarunGothic'
-plt.rcParams["font.size"]=10           #이거만 넣으면 한글로 나옴!
+plt.rcParams["font.size"]=10           
 plt.rcParams["figure.figsize"]=(10,4)
 
 site_view_mean=pd.DataFrame()
