@@ -42,6 +42,7 @@ $("#flipbook").turn({
     width: width,
     height: height,
     duration: 1200,
+    autoCenter: true
 });
 
 // 종합 페이지

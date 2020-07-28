@@ -7,7 +7,6 @@
     <!-- 1페이지를 표지로 만들 때 -->
     <div id="flipbook" class="flipbook">
         <div class="hard start-cover">
-            <!-- 1page -->
             <!-- cover -->
             <div class="book-wrap">
                 <div class="cover-content">
@@ -22,27 +21,54 @@
             </div>
         </div>
         <div class="hard">
-            <!-- 2page -->
             <!-- 소개 페이지-->
             <div class="book-wrap">
                 <div class="page-content nanum-font">
-                    <h2>
-                        Analyzing lecture sites in Korea, compare the popularity of Python, Java, and C languages.
-                    </h2>
-                    <ul>
-                        <h3>Data From</h3>
-                        <li>edwith</li>
-                        <li>groom</li>
-                        <li>inflearn</li>
-                        <li>kocw</li>
-                        <li>programmers</li>
-                        <li>sangco</li>
-                    </ul>
+                    {% include "books/pages/page_2.html" %}
                 </div>
             </div>
         </div>
         <div>
-            <!-- 3page -->
+            <div class="book-wrap">
+                <div class="page-content nanum-font">
+                    <img src="static/images/charts/test.png" alt="" width="650" height=auto>
+                </div>
+                <h4 class="text-center">조사한 7개 사이트의 프로그래밍 언어별 강의 수 총합</h4>
+            </div>
+        </div>
+        <div>
+            <!-- C -->
+            <div class="book-wrap">
+                <div class="page-content nanum-font">
+                    <h1>
+                        1. C
+                    </h1>
+                    <img class="wordcloud center-block" src="static/images/wordclouds/c_white.png" alt="" width="450" height="450">
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="book-wrap">
+                <div class="page-content nanum-font">
+                    <img src="static/images/charts/c_site_view_lec(pie).png" alt="" width="650" height=auto>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="book-wrap">
+                <div class="page-content nanum-font">
+                    <img src="static/images/charts/c_site_view_lec.png" alt="" width="650" height=auto>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="book-wrap">
+                <div class="page-content nanum-font">
+                    <img src="static/images/charts/c_view_max.png" alt="" width="650" height=auto>
+                </div>
+            </div>
+        </div>
+        <div>
             <div class="book-wrap">
                 <div class="page-content nanum-font">
                     <h1>
@@ -54,15 +80,6 @@
             </div>
         </div>
         <div>
-            <!-- 4page -->
-            <div class="book-wrap">
-                <div class="page-content nanum-font">
-                    <img src="static/images/charts/test.png" alt="">
-                </div>
-            </div>
-        </div>
-        <div>
-            <!-- 5page -->
             <div class="book-wrap">
                 <div class="page-content nanum-font">
                     <h1>
@@ -73,42 +90,7 @@
                 </div>
             </div>
         </div>
-        <div>
-            <!-- 6page -->
-            <div class="book-wrap">
-                <div class="page-content nanum-font">
-                    <h1>
-                        우리나라의 강의 사이트들을 분석하여
-                        <br>
-                        프로그래밍 교육시장의 동향을 알아본다.
-                    </h1>
-                </div>
-            </div>
-        </div>
-        <div>
-            <!-- 7page -->
-            <div class="book-wrap">
-                <div class="page-content nanum-font">
-                    <h1>
-                        우리나라의 강의 사이트들을 분석하여
-                        <br>
-                        프로그래밍 교육시장의 동향을 알아본다.
-                    </h1>
-                </div>
-            </div>
-        </div>
-        <div>
-            <!-- 8page -->
-            <div class="book-wrap">
-                <div class="page-content nanum-font">
-                    <h1>
-                        우리나라의 강의 사이트들을 분석하여
-                        <br>
-                        프로그래밍 교육시장의 동향을 알아본다.
-                    </h1>
-                </div>
-            </div>
-        </div>
+        
         <div>
             <div class="book-wrap">
                 <div class="page-content nanum-font">
@@ -169,7 +151,7 @@
 
     .cover-content {
         position: absolute;
-        top: 30%;
+        top: 25%;
         left: 25%;
         height: 100%;
         width: 100%;
