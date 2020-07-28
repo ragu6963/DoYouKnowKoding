@@ -26,7 +26,9 @@ no_free_df = pd.DataFrame()
 free_df = pd.DataFrame()
 
 for language_name in language_list:
-    df = pd.read_csv(f"../analyze_data/{language_name}/{language_name}_all.csv")
+    df = pd.read_csv(
+        f"../../analyze_data/{language_name}/{language_name}_all.csv"
+    )
     temp_dict = {}
     temp_dict["subject"] = language_name
 
@@ -158,9 +160,8 @@ fig = go.Figure(
     data=[
         go.Bar(name="무료", x=langauge, y=free_view_mean_list),
         go.Bar(name="유료", x=langauge, y=no_free_view_mean_list),
-    ]
+    ],
 )
-# Change the bar mode
 fig.update_layout(barmode="group")
 fig.show()
 
@@ -183,15 +184,27 @@ no_free_lec_sum_list = [
 
 fig = go.Figure(
     data=[
-        go.Bar(name="무료", x=langauge, y=free_lec_sum_list),
-        go.Bar(name="유료", x=langauge, y=no_free_lec_sum_list),
-    ]
+        go.Bar(
+            name="무료",
+            x=langauge,
+            y=free_lec_sum_list,
+            text=free_lec_sum_list,
+            textposition="auto",
+        ),
+        go.Bar(
+            name="유료",
+            x=langauge,
+            y=no_free_lec_sum_list,
+            text=no_free_lec_sum_list,
+            textposition="auto",
+        ),
+    ],
 )
-# Change the bar mode
+# fig.update_traces(texttemplate="%{text:.2s}", textposition="outside")
+# fig.update_layout(uniformtext_minsize=8, uniformtext_mode="hide")
 fig.update_layout(barmode="group")
 fig.show()
-
-
+# fig.write_html("../static/images/charts/file.html")
 # %%
 # 강의 수 비교
 import plotly.graph_objects as go
@@ -202,3 +215,4 @@ fig.show()
 
 
 # %%
+

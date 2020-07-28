@@ -1,37 +1,22 @@
 {% extends "base.html" %}
 {% block content %}
+{% include "etc/intro.html" %}
+{% include "books/book.html" %}
 
-{% include "intro.html" %}
-{% include "book.html" %}
-
-<section class="ftco-section-parallax">
+<section class="ftco-section-parallax mt-5 mb-5">
   <div class="parallax-img d-flex align-items-center">
     <div class="container">
       <div class="row d-flex justify-content-center">
         <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
-          <h2>Subcribe to our Contents</h2>
-          <p>
-            You can get precise information and insight about an useful programming language by subscribing to our contents.
-          </p>
-          <div class="row d-flex justify-content-center mt-5">
-            <div class="col-md-6">
-              <form action="#" class="subscribe-form">
-                <div class="form-group">
-                  <span class="icon icon-paper-plane"></span>
-                  <input type="text" class="form-control" placeholder="Enter email address">
-                </div>
-              </form>
-            </div>
-          </div>
+          <h2>Introduce Team Member</h2>
+          <h4></h4>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-{% include "introduce.html" %}
-
-{% include "footer.html" %}
-{% include "loader.html" %}
-
+{% include "etc/introduce.html" %}
+{% include "etc/footer.html" %}
+{% include "etc/loader.html" %}
 {% endblock content %}

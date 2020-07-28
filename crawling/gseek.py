@@ -68,4 +68,4 @@ for url in url_list:
         gseek_series = pd.Series(gseek_dict)
         gseek_df = gseek_df.append(gseek_series, ignore_index=True)
 
-gseek_df.to_csv("./data/gseek.csv", index=False)
+gseek_df.to_csv("crawling_data/gseek.csv", index=False)

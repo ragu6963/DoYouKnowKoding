@@ -48,4 +48,4 @@ for Id in categoryId:
 
         edwith_df = edwith_df.append(edwith_series, ignore_index=True)
 
-edwith_df.to_csv("data/edwith3.csv", index=False)
+edwith_df.to_csv("crawling_data/edwith3.csv", index=False)

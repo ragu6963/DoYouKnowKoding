@@ -48,6 +48,7 @@ share/python-wheels/
 *.egg
 MANIFEST
 analyze_data/
+.vscode/
 
 # PyInstaller
 #  Usually these files are written by a python script from a template

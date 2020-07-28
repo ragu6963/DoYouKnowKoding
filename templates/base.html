@@ -37,6 +37,10 @@
     {% endblock content %}
     <script src="static/js/jquery.min.js"></script>
     <script src="static/turnjs4/lib/turn.min.js"></script>
+    <script
+        src="https://www.cssscript.com/demo/simple-typewriter-effect-pure-javascript-typewriterjs/typewriter.js"></script>
+
+
 
     <script src="static/js/jquery-migrate-3.0.1.min.js"></script>
     <script src="static/js/popper.min.js"></script>
@@ -59,6 +63,52 @@
     <script src="static/js/main.js"></script>
     <script src="static/js/book.js"></script>
     <script src="https://kit.fontawesome.com/5ac56ffa94.js" crossorigin="anonymous"></script>
+    <script>
+
+        var typing = document.getElementById('typing-txt');
+
+        var typewriter = new Typewriter(typing, {
+            loop: true
+        });
+        typewriter.typeString('Hello!')
+            .pauseFor(1000)
+            .deleteAll()
+            .typeString('Do You Know Cod...')
+            .pauseFor(500)
+            .deleteChars(6)
+            .typeString('Koding?')
+            .pauseFor(2500)
+            .start();
+    </script>
 </body>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&display=swap');
+
+    .nanum-font {
+        font-family: 'Nanum Gothic', sans-serif;
+    }
+
+    html {
+        overflow-x: hidden
+    }
+
+    html::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    html::-webkit-scrollbar-thumb {
+        background-color: #2f3542;
+    }
+
+    html::-webkit-scrollbar-track {
+        background-color: lightgrey;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+    }
+</style>
 
 </html>

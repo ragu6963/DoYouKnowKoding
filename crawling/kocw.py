@@ -73,5 +73,5 @@ for subject, keyword_list in keyword_dict.items():
 
             kocw_df = kocw_df.append(kocw_series, ignore_index=True)
 
-kocw_df.to_csv("data/kocw.csv", index=False)
+kocw_df.to_csv("crawling_data/kocw.csv", index=False)
 

@@ -36,5 +36,5 @@ for i in range(1, last_page + 1):
 
         groom_df = groom_df.append(groom_series, ignore_index=True)
 
-groom_df.to_csv("data/groom.csv", index=False)
+groom_df.to_csv("crawling_data/groom.csv", index=False)
 
