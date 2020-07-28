@@ -1,0 +1,148 @@
+<section id="bookpage" class="ftco-section bookcover" style="position: relative;">
+
+    <!-- 이동버튼 -->
+    {% include "moveBtn.html" %}
+
+    <!-- 북마크 -->
+    {% include "bookmark.html" %}
+
+    <!-- 1페이지를 표지로 만들 때 -->
+    <div id="flipbook" class="flipbook" width="710px" height="1000px">
+        <div class="hard right startcover">
+            <!-- 1page -->
+            <div class="bookContent">
+            </div>
+        </div>
+        <div class="hard left">
+            <!-- 2page -->
+            <div class="bookContent">
+            </div>
+        </div>
+        <div class="right">
+            <!-- 3page -->
+            <div class="bookContent">
+                <img src="./static/images/python_wordcloud.jpg">
+            </div>
+        </div>
+        <div class="left">
+            <!-- 4page -->
+            <div class="bookContent">
+                <p style="font-family:Nanum Gothic; font-size:1.5em; color:green;">
+                    파이썬
+                </p>
+            </div>
+        </div>
+        <div class="right">
+            <!-- 5page -->
+            <div class="bookContent">
+            </div>
+        </div>
+        <div class="left">
+            <!-- 6page -->
+            <div class="bookContent">
+            </div>
+        </div>
+        <div class="right">
+            <!-- 7page -->
+            <div class="bookContent">
+            </div>
+        </div>
+        <div class="left">
+            <!-- 8page -->
+            <div class="bookContent">
+            </div>
+        </div>
+        <div class="right">
+            <div class="bookContent">
+            </div>
+        </div>
+        <div class="left">
+            <div class="bookContent">
+            </div>
+        </div>
+        <div class="hard right">
+            <div class="bookContent">
+            </div>
+        </div>
+        <div class="hard left endcover">
+            <div class="bookContent">
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<style>
+    /* .bookContent {}
+
+    .startcover {
+        
+        background-image: url('../static/images/book_crop_cover.png');
+        background-size: cover;
+       
+    }
+
+    .endcover {
+        
+        background-image: url('../static/images/book_crop_cover.png');
+        background-size: cover;
+       
+    } */
+
+    @import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+    .left {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("../static/images/right-border.png");
+        background-position: right top;
+        background-repeat: repeat-y;
+    }
+
+    .right {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("../static/images/left-border.png");
+        background-position: left top;
+        background-repeat: repeat-y;
+    }
+
+    html {
+        overflow-x: hidden
+    }
+
+    .hard {
+        background-color: rgba(255, 255, 255, 255);
+    }
+
+    .bookcover {
+        padding-top: 75px;
+        padding-bottom: 25px;
+    }
+
+    .flipbook {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .moveBtn {
+        position: absolute;
+        top: 50%;
+        z-index: 2;
+        color: grey !important;
+        opacity: 0.5;
+    }
+
+    .markBtn {
+        position: absolute;
+        z-index: 2;
+        height: 3.5rem;
+        margin-top: -50px
+    }
+</style>
