@@ -5,7 +5,9 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 
 # %%
-language_list = ["python", "java", "c", "etc"]
+# language_list = ["python", "java", "c", "etc"]
+language_list = ["etc"]
+
 # %%
 from wordcloud import WordCloud
 import numpy as np
@@ -43,7 +45,7 @@ def displayWordCloud(
     plt.imshow(wordcloud)
     plt.axis("off")
     plt.show()
-    wordcloud.to_file("python_wordcloud.png")
+    # wordcloud.to_file("python_wordcloud.png")
 
 
 # %%
@@ -68,10 +70,13 @@ c_mask = np.array(c_mask)
 # 사용자 사전 추가
 from konlpy.tag import Komoran
 
-for language_name in language_list[0:1]:
+for language_name in language_list:
     title_list = []
     title_str = ""
-    df = pd.read_csv(f"../../analyze_data/{language_name}/{language_name}_all.csv")
+    df = pd.read_csv(
+        f"../../analyze_data/{language_name}/{language_name}_all.csv",
+        encoding="utf-8",
+    )
     titles = df["title"]
     for title in titles:
         title_list.append(title)
@@ -86,9 +91,9 @@ for language_name in language_list[0:1]:
             noun_count[noun] += 1
         else:
             noun_count[noun] = 1
-    # noun_list = sorted(noun_count.items(), key=lambda x: x[1], reverse=True)
-    # print(noun_list)
-    displayWordCloud(" ".join(noun_list))
+    noun_list = sorted(noun_count.items(), key=lambda x: x[1], reverse=True)
+    print(noun_list)
+    # displayWordCloud(" ".join(noun_list))
     # noun_extractor._compounds_components.get(title_list, None)
 
 
@@ -101,7 +106,9 @@ from soynlp.noun import LRNounExtractor_v2
 
 for language_name in language_list[:1]:
     title_list = []
-    df = pd.read_csv(f"../../analyze_data/{language_name}/{language_name}_all.csv")
+    df = pd.read_csv(
+        f"../../analyze_data/{language_name}/{language_name}_all.csv"
+    )
     titles = df["title"]
     for title in titles:
         title_list.append(title)
@@ -111,9 +118,9 @@ for language_name in language_list[:1]:
 
     if language_name == "python":
         del nouns["Python"]
-    # for noun, lank in nouns.items():
-    # print(noun, lank)
-    displayWordCloud(" ".join(nouns), language_name)
+    for noun, lank in nouns.items():
+        print(noun, lank)
+    # displayWordCloud(" ".join(nouns), language_name)
     # noun_extractor._compounds_components.get(title_list, None)
 
 
@@ -124,7 +131,9 @@ from konlpy.tag import Okt
 for language_name in language_list[:1]:
     title_list = []
     title_str = ""
-    df = pd.read_csv(f"../../analyze_data/{language_name}/{language_name}_all.csv")
+    df = pd.read_csv(
+        f"../../analyze_data/{language_name}/{language_name}_all.csv"
+    )
     titles = df["title"]
     for title in titles:
         title_list.append(title)
