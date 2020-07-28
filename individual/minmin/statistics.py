@@ -32,9 +32,9 @@ temp_df = pd.DataFrame(
         "score_mean": [],
     }
 )
-subject = "c"
+subject = "python"
 for file_name in file_list:
-    df = pd.read_csv(f"../analyze_data/{subject}/{subject}_{file_name}.csv")
+    df = pd.read_csv(f"../../analyze_data/{subject}/{subject}_{file_name}.csv")
 
     if df["site"].count() == 0:
         continue
@@ -49,9 +49,9 @@ for file_name in file_list:
     temp_dict["lec_sum"] = lec_sum
 
     # 합계
-    # view_sum = df["view"].sum()
-    # view_sum
-    # temp_dict["view_sum"] = view_sum
+    view_sum = df["view"].sum()
+    view_sum
+    temp_dict["view_sum"] = view_sum
 
     # 평균
     view_mean = int(df["view"].mean())
@@ -137,12 +137,12 @@ plt.rcParams["figure.figsize"]=(10,4)
 site_view_mean=pd.DataFrame()
 site_view_mean["site"] = temp_df["site"]
 site_view_mean["lec_sum"] = temp_df["lec_sum"]
-site_view_mean["view_mean"] = temp_df["view_mean"]
+site_view_mean["view_sum"] = temp_df["view_sum"]
 
 
 x = site_view_mean["site"]
 y1=site_view_mean["lec_sum"]
-y2=site_view_mean["view_mean"]
+y2=site_view_mean["view_sum"]
 
 fig, ax1 = plt.subplots()
 ax2 = ax1.twinx()
