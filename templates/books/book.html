@@ -10,13 +10,7 @@
             <!-- cover -->
             <div class="book-wrap">
                 <div class="cover-content">
-                    <span>Do You Know Koding?</span>
-                    <br>
-                    <h1>
-                        <strong class="strong-color">K</strong>orean c<strong class="strong-color">ODING</strong>
-                        <br>
-                        language analysis report
-                    </h1>
+                    {% include "books/pages/page_1.html" %}
                 </div>
             </div>
         </div>
@@ -40,53 +34,42 @@
             <!-- C -->
             <div class="book-wrap">
                 <div class="page-content nanum-font">
-                    <h1>
-                        1. C
-                    </h1>
-                    <img class="wordcloud center-block" src="static/images/wordclouds/c_white.png" alt="" width="450" height="450">
+                    {% include "books/pages/page_3.html" %}
                 </div>
             </div>
         </div>
         <div>
             <div class="book-wrap">
                 <div class="page-content nanum-font">
-                    <img src="static/images/charts/c_site_view_lec(pie).png" alt="" width="650" height=auto>
+                    {% include "books/pages/page_4.html" %}
                 </div>
             </div>
         </div>
         <div>
             <div class="book-wrap">
                 <div class="page-content nanum-font">
-                    <img src="static/images/charts/c_site_view_lec.png" alt="" width="650" height=auto>
+                    {% include "books/pages/page_5.html" %}
                 </div>
             </div>
         </div>
         <div>
             <div class="book-wrap">
                 <div class="page-content nanum-font">
-                    <img src="static/images/charts/c_view_max.png" alt="" width="650" height=auto>
+                    {% include "books/pages/page_6.html" %} 
                 </div>
             </div>
         </div>
         <div>
             <div class="book-wrap">
                 <div class="page-content nanum-font">
-                    <h1>
-                        우리나라의 강의 사이트들을 분석하여
-                        <br>
-                        프로그래밍 교육시장의 동향을 알아본다.
-                    </h1>
+                    {% include "books/pages/page_7.html" %} 
                 </div>
             </div>
         </div>
         <div>
             <div class="book-wrap">
                 <div class="page-content nanum-font">
-                    <h1>
-                        우리나라의 강의 사이트들을 분석하여
-                        <br>
-                        프로그래밍 교육시장의 동향을 알아본다.
-                    </h1>
+                    {% include "books/pages/page_8.html" %} 
                 </div>
             </div>
         </div>
@@ -148,11 +131,14 @@
     .strong-color {
         color: #448ef6;
     }
+    .strong-color {
+        color: #298312;
+    }
 
     .cover-content {
         position: absolute;
-        top: 25%;
-        left: 25%;
+        top: 30%;
+        left: 25%; 
         height: 100%;
         width: 100%;
     }

@@ -32,7 +32,7 @@ temp_df = pd.DataFrame(
         "score_mean": [],
     }
 )
-subject = "java"
+subject = "c"
 for file_name in file_list:
     df = pd.read_csv(f"../analyze_data/{subject}/{subject}_{file_name}.csv")
 
@@ -130,9 +130,8 @@ fig.show()
 
 # %%
 # 사이트별 강의수와 조회수 비교
-# subject = "c"
 plt.rcParams["font.family"]='NanumBarunGothic'
-plt.rcParams["font.size"]=10           #이거만 넣으면 한글로 나옴!
+plt.rcParams["font.size"]=10           
 plt.rcParams["figure.figsize"]=(10,4)
 
 site_view_mean=pd.DataFrame()
