@@ -1,5 +1,5 @@
-var height = $(window).height() - 100;
-var width = $(window).width() - 100;
+var height = $(window).height() - $(window).height() * 0.1;
+var width = $(window).width() - $(window).width() * 0.05;
 var all_page = [2, 3]
 var python_page = [4, 5, 6, 7]
 var java_page = [8, 9, 10, 11]
@@ -7,6 +7,12 @@ var c_page = [12, 13, 14, 15]
 var etc_page = [16, 17, 18, 19]
 var end_page = [20]
 
+// turn js 설정
+$("#flipbook").turn({
+    width: width,
+    height: height,
+    duration: 1200,
+});
 
 function hidden_bookmark(hiddenBtn) {
     $("#" + hiddenBtn).css('visibility', 'hidden')
@@ -42,12 +48,26 @@ function move_etc_bookmark(location, value) {
     $("#etcBtn").css(location, value + "%")
 }
 
-// turn js 설정
-$("#flipbook").turn({
-    width: width,
-    height: height,
-    duration: 1200,
-});
+function numberGo() {
+    $("#flipbook").turn("page", all_page[0]);
+    return false;
+}
+function pythonGo() {
+    $("#flipbook").turn("page", python_page[0]);
+    return false;
+}
+function javaGo() {
+    $("#flipbook").turn("page", java_page[0]);
+    return false;
+}
+function cGo() {
+    $("#flipbook").turn("page", c_page[0]);
+    return false;
+}
+function etcGo() {
+    $("#flipbook").turn("page", etc_page[0]);
+    return false;
+}
 
 // 종합 페이지
 $("#allBtn").click(function () {

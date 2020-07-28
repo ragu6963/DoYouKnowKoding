@@ -8,7 +8,15 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 
 kocw_df = pd.DataFrame(
-    {"title": [], "view": [], "price": [], "score": [], "like": [], "college": [], "url": []}
+    {
+        "title": [],
+        "view": [],
+        "price": [],
+        "score": [],
+        "like": [],
+        "college": [],
+        "url": [],
+    }
 )
 
 driver = webdriver.Chrome("crawling/data/chromedriver")
@@ -16,11 +24,19 @@ driver.get("http://www.kocw.net/home/index.do")
 driver.implicitly_wait(3)
 
 # 검색어 리스트
-keyword_dict = {"파이썬": ["파이썬", "python"], "자바": ["java", "자바",], "c언어": ["C언어", "C프로그래밍"]}
+keyword_dict = {
+    "파이썬": ["파이썬", "python"],
+    "자바": ["java", "자바",],
+    "c언어": ["C언어", "C프로그래밍"],
+}
 for subject, keyword_list in keyword_dict.items():
     for keyword in keyword_list:
-        driver.execute_script(f"document.getElementsByName('query')[0].value='{keyword}'")
-        driver.find_element_by_xpath('//*[@id="search"]/form/fieldset/input[2]').click()
+        driver.execute_script(
+            f"document.getElementsByName('query')[0].value='{keyword}'"
+        )
+        driver.find_element_by_xpath(
+            '//*[@id="search"]/form/fieldset/input[2]'
+        ).click()
         driver.implicitly_wait(1)
 
         # 추천강의만 출력
@@ -47,13 +63,21 @@ for subject, keyword_list in keyword_dict.items():
 
             title = soup.select_one("div.resultDetailTop > h3 > a").get_text()
             print(title)
-            view = soup.select("ul.detailViewList > li > dl > dd")[2].get_text().replace(",", "")
+            view = (
+                soup.select("ul.detailViewList > li > dl > dd")[2]
+                .get_text()
+                .replace(",", "")
+            )
             print(view)
             college = soup.select("ul.detailTitInfo > li ")[0].get_text()
             print(college)
 
             try:
-                score = soup.select("ul.detailViewList > li > dl > dd")[3].get_text().split("/")[0]
+                score = (
+                    soup.select("ul.detailViewList > li > dl > dd")[3]
+                    .get_text()
+                    .split("/")[0]
+                )
                 print(score)
 
             except:
