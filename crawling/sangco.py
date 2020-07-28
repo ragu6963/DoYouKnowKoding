@@ -65,5 +65,5 @@ for start, end in index_list:
         sangco_series = pd.Series(sangco_dict)
         sangco_df = sangco_df.append(sangco_series, ignore_index=True)
 
-sangco_df.to_csv("data/sangco.csv", index=False)
+sangco_df.to_csv("crawling_data/sangco.csv", index=False)
 

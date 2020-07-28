@@ -1,0 +1,235 @@
+<section id="bookpage" class="ftco-section bookpage" style="position: relative;">
+    <!-- 이동버튼 -->
+    {% include "books/moveBtn.html" %}
+    <!-- 북마크 -->
+    {% include "books/bookmark.html" %}
+
+    <!-- 1페이지를 표지로 만들 때 -->
+    <div id="flipbook" class="flipbook">
+        <div class="hard start-cover">
+            <!-- 1page -->
+            <!-- cover -->
+            <div class="book-wrap">
+                <div class="cover-content">
+                    <span>Do You Know Koding?</span>
+                    <br>
+                    <h1>
+                        <strong class="strong-color">K</strong>orean c<strong class="strong-color">ODING</strong>
+                        <br>
+                        language analysis report
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <div class="hard">
+            <!-- 2page -->
+            <!-- 소개 페이지-->
+            <div class="book-wrap">
+                <div class="page-content nanum-font">
+                    <h2>
+                        Analyzing lecture sites in Korea, compare the popularity of Python, Java, and C languages.
+                    </h2>
+                    <ul>
+                        <h3>Data From</h3>
+                        <li>edwith</li>
+                        <li>groom</li>
+                        <li>inflearn</li>
+                        <li>kocw</li>
+                        <li>programmers</li>
+                        <li>sangco</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div>
+            <!-- 3page -->
+            <div class="book-wrap">
+                <div class="page-content nanum-font">
+                    <h1>
+                        우리나라의 강의 사이트들을 분석하여
+                        <br>
+                        프로그래밍 교육시장의 동향을 알아본다.
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <div>
+            <!-- 4page -->
+            <div class="book-wrap">
+                <div class="page-content nanum-font">
+                    <img src="static/images/charts/test.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div>
+            <!-- 5page -->
+            <div class="book-wrap">
+                <div class="page-content nanum-font">
+                    <h1>
+                        우리나라의 강의 사이트들을 분석하여
+                        <br>
+                        프로그래밍 교육시장의 동향을 알아본다.
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <div>
+            <!-- 6page -->
+            <div class="book-wrap">
+                <div class="page-content nanum-font">
+                    <h1>
+                        우리나라의 강의 사이트들을 분석하여
+                        <br>
+                        프로그래밍 교육시장의 동향을 알아본다.
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <div>
+            <!-- 7page -->
+            <div class="book-wrap">
+                <div class="page-content nanum-font">
+                    <h1>
+                        우리나라의 강의 사이트들을 분석하여
+                        <br>
+                        프로그래밍 교육시장의 동향을 알아본다.
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <div>
+            <!-- 8page -->
+            <div class="book-wrap">
+                <div class="page-content nanum-font">
+                    <h1>
+                        우리나라의 강의 사이트들을 분석하여
+                        <br>
+                        프로그래밍 교육시장의 동향을 알아본다.
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="book-wrap">
+                <div class="page-content nanum-font">
+                    <h1>
+                        우리나라의 강의 사이트들을 분석하여
+                        <br>
+                        프로그래밍 교육시장의 동향을 알아본다.
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="book-wrap">
+                <div class="page-content nanum-font">
+                    <h1>
+                        우리나라의 강의 사이트들을 분석하여
+                        <br>
+                        프로그래밍 교육시장의 동향을 알아본다.
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <div class="hard ">
+            <div class="book-wrap">
+                <div class="page-content nanum-font">
+                    <h1>
+                        우리나라의 강의 사이트들을 분석하여
+                        <br>
+                        프로그래밍 교육시장의 동향을 알아본다.
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <div class="hard end-cover">
+            <div class="book-wrap">
+                <div class="page-content nanum-font">
+                    <h1>
+                        Copyright
+                        <br>
+                        Dou You Konw Koding?
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<style>
+    .graph-iframe {
+        height: 50vh;
+        width: 50vh;
+    }
+
+    .strong-color {
+        color: #448ef6;
+    }
+
+    .cover-content {
+        position: absolute;
+        top: 30%;
+        left: 25%;
+        height: 100%;
+        width: 100%;
+    }
+
+    .page-content {}
+
+    .book-wrap {
+        padding: 2rem;
+        width: 100%;
+        height: 100%;
+    }
+
+    .flipbook {
+        z-index: 1;
+    }
+
+    /*짝수*/
+    .even {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 255);
+        background-image: url("../static/images/books/right-border.png");
+        background-position: right top;
+        background-repeat: repeat-y;
+        -webkit-box-shadow: inset 5px 5px 15px 1px rgba(0, 0, 0, 0.3) !important;
+        -moz-box-shadow: inset 5px 5px 15px 1px rgba(0, 0, 0, 0.3) !important;
+        box-shadow: inset 5px 5px 15px 1px rgba(0, 0, 0, 0.3) !important;
+    }
+
+    /*홀수*/
+    .odd {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 255);
+        background-image: url("../static/images/books/left-border.png");
+        background-position: left top;
+        background-repeat: repeat-y;
+        -webkit-box-shadow: inset -5px 5px 15px 1px rgba(0, 0, 0, 0.3) !important;
+        -moz-box-shadow: inset -5px 5px 15px 1px rgba(0, 0, 0, 0.3) !important;
+        box-shadow: inset -5px 5px 15px 1px rgba(0, 0, 0, 0.3) !important;
+    }
+
+    .hard {
+        background-color: rgba(255, 255, 255, 255);
+    }
+
+    .bookpage {
+        padding-top: 75px;
+        padding-bottom: 25px;
+    }
+
+    .flipbook {
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
