@@ -5,6 +5,7 @@ import numpy as np
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 import plotly.graph_objects as go
+
 # %%
 file_list = [
     "inflearn",
@@ -26,12 +27,9 @@ temp_df = pd.DataFrame(
         "like_mean": [],
         "score_mean": [],
     }
-
 )
 
-top_view_df = pd.DataFrame() 
-
-
+top_view_df = pd.DataFrame()
 
 
 subject = "all"
@@ -40,7 +38,6 @@ for file_name in file_list:
 
     if df["site"].count() == 0:
         continue
-
 
     temp_dict = {}
 
@@ -62,23 +59,24 @@ for file_name in file_list:
     temp_dict["view_mean"] = view_mean
 
     # 조회 수 최대 값
-    python_view_max = df[df.subject=="파이썬"]["view"].max()
-    print(df)
-    java_view_max = df[df.subject=="자바"]["view"].max()
+    python_view_max = df[df.subject == "파이썬"]["view"].max()
+    java_view_max = df[df.subject == "자바"]["view"].max()
     # print(df.subject)
-    c_view_max = df[df.subject=="C언어"]["view"].max()
+    c_view_max = df[df.subject == "C언어"]["view"].max()
 
-
-    if python_view_max != np.NaN :
-        python_view_max_row = df[(df.subject=="파이썬") & (df.view==python_view_max)]
-        top_view_df = top_view_df.append(python_view_max_row,ignore_index=True)
-    if java_view_max != np.NaN :
-        java_view_max_row = df[(df.subject=="자바") & (df.view==java_view_max)]
-        top_view_df = top_view_df.append(java_view_max_row,ignore_index=True)
-    if c_view_max != np.NaN :
-        c_view_max_row = df[(df.subject=="C언어") & (df.view==c_view_max)]
-        top_view_df = top_view_df.append(c_view_max_row,ignore_index=True)
-    
+    if python_view_max != np.NaN:
+        python_view_max_row = df[
+            (df.subject == "파이썬") & (df.view == python_view_max)
+        ]
+        top_view_df = top_view_df.append(python_view_max_row, ignore_index=True)
+    if java_view_max != np.NaN:
+        java_view_max_row = df[
+            (df.subject == "자바") & (df.view == java_view_max)
+        ]
+        top_view_df = top_view_df.append(java_view_max_row, ignore_index=True)
+    if c_view_max != np.NaN:
+        c_view_max_row = df[(df.subject == "C언어") & (df.view == c_view_max)]
+        top_view_df = top_view_df.append(c_view_max_row, ignore_index=True)
 
     columns_list = df.columns
     price_mean = 0
@@ -91,7 +89,6 @@ for file_name in file_list:
         temp_dict["price_mean"] = price_mean
     else:
         temp_dict["price_mean"] = np.nan
-     
 
     # like 평균
     if df["like"].isnull().sum() == 0:
@@ -112,7 +109,7 @@ for file_name in file_list:
     temp_df = temp_df.append(temp_series, ignore_index=True)
 
 # temp_df
-# top_view_df.loc[0]
+top_view_df
 
 # %%
 # 그래프 총 조회수
@@ -210,11 +207,20 @@ all_view_mean = pd.DataFrame(
     {
         "조회수평균": ["0", "0", "0", "0", "0", "0", "0"],
         "site": temp_df.sort_values(by=["view_mean"], axis=0)["site"][:],
-        "view_mean": temp_df.sort_values(by=["view_mean"], axis=0)["view_mean"][:],
+        "view_mean": temp_df.sort_values(by=["view_mean"], axis=0)["view_mean"][
+            :
+        ],
     }
 )
 
-fig = px.bar(all_view_mean, x="view_mean", y="조회수평균", color="site", orientation="h", height=500)
+fig = px.bar(
+    all_view_mean,
+    x="view_mean",
+    y="조회수평균",
+    color="site",
+    orientation="h",
+    height=500,
+)
 fig.show(config=config)
 fig.write_html("file.html")
 
@@ -234,23 +240,25 @@ fig.show()
 
 
 # %%
-mpl.rc('font', family='NanumBarunGothic') #한글 폰트 설정
+mpl.rc("font", family="NanumBarunGothic")  # 한글 폰트 설정
 plt.figure(figsize=(10, 5))
-plt.bar(temp_df['site'].astype(str),temp_df['lec_sum']) 
-plt.xlabel('사이트')
-plt.ylabel('강의 수')
+plt.bar(temp_df["site"].astype(str), temp_df["lec_sum"])
+plt.xlabel("사이트")
+plt.ylabel("강의 수")
 plt.show()
 
 
 # %%
-animals=['giraffes', 'orangutans', 'monkeys']
+animals = ["giraffes", "orangutans", "monkeys"]
 
-fig = go.Figure(data=[
-    go.Bar(name='SF Zoo', x=animals, y=[20, 14, 23]),
-    go.Bar(name='LA Zoo', x=animals, y=[12, 18, 29])
-])
+fig = go.Figure(
+    data=[
+        go.Bar(name="SF Zoo", x=animals, y=[20, 14, 23]),
+        go.Bar(name="LA Zoo", x=animals, y=[12, 18, 29]),
+    ]
+)
 # Change the bar mode
-fig.update_layout(barmode='group')
+fig.update_layout(barmode="group")
 fig.show()
 
 
@@ -258,5 +266,6 @@ fig.show()
 # 유료 강의 조회 수 추출
 
 # view 최댓값
-    # view_max = df["view"].max()
-    # temp_dict["view_max"] = view_max
+# view_max = df["view"].max()
+# temp_dict["view_max"] = view_max
+
