@@ -111,7 +111,7 @@ site_lec_sum
 fig = plt.figure()
 plt.bar(site_lec_sum["site"], site_lec_sum["lec_sum"])
 plt.show()
-.# %%
+# %%
 # 그래프 평균 조회수
 site_view_mean = pd.DataFrame()
 site_view_mean["site"] = temp_df["site"]
@@ -219,6 +219,4 @@ y = site_lec_sum["lec_sum"]
 fig = go.Figure(data=[go.Bar(x=x, y=y, text=y, textposition="auto",)])
 
 fig.show()
-
-
 

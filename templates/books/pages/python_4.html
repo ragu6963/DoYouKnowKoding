@@ -1,38 +1,33 @@
-<h1>
-    <img src="static/images/charts/python_view_max.png" style="float: left; width: 650px; height: auto;">
-</h1>
-<div class="row" style="background-color: #EAEAEA; font-size: 20px">
-    <div class="col-1"> </div>
-    <div class="col-5">강의명</div>
-    <div class="col-3">사이트 이름</div>
-    <div class="col-2">바로가기</div>
-</div>
-<div class="table" style="font-size: 16px">
-    <div class="row">
-        <div class="col-1">1</div>
-        <div class="col-5">파이썬 처음부터 하기</div>
-        <div class="col-3">인프런</div>
-        <div class="col-2">
-            <button type="button" class="btn btn-outline-primary"><a
-                    href="https://www.notion.so/KFQ-2-53c8c1d14d5146bfb508aff26a951a4a">링크</a></button>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-1">2</div>
-        <div class="col-5">초등학생도 하는 파이썬</div>
-        <div class="col-3">인프런</div>
-        <div class="col-2">
-            <button type="button" class="btn btn-outline-primary"><a
-                    href="https://www.notion.so/KFQ-2-53c8c1d14d5146bfb508aff26a951a4a">링크</a></button>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-1">3</div>
-        <div class="col-5">Python in Machine Learning</div>
-        <div class="col-3">프로그래머스</div>
-        <div class="col-2">
-            <button type="button" class="btn btn-outline-primary"><a
-                    href="https://www.notion.so/KFQ-2-53c8c1d14d5146bfb508aff26a951a4a">링크</a></button>
-        </div>
-    </div>
+<img class="chart-image mx-auto d-block" src="static/images/charts/python_view_max.png">
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">순위</th>
+                <th scope="col">이름</th>
+                <th scope="col">조회수</th>
+                <th scope="col">바로가기</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for index in range(0,3) %}
+            <tr>
+                <td class="td-center">{{index+1}}</td>
+                <td>
+                    <div style="overflow:hidden; text-overflow:ellipsis; width:300px;">
+                        <nobr>{{python_dict["title"][index]}}</nobr>
+                    </div>
+                </td>
+                <td>
+                    {{python_dict["view"][index]}}
+                </td>
+                <td class="td-center">
+                    <button class="bttn-material-circle bttn-sm bttn-primary bttn-no-outline">
+                        <a href="{{python_dict['url'][index]}}"><i class="fas fa-external-link-alt"></i></a>
+                    </button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </div>
