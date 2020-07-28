@@ -44,9 +44,9 @@ for file_name in file_list:
     temp_dict["lec_sum"] = lec_sum
 
     # 합계
-    # view_sum = df["view"].sum()
-    # view_sum
-    # temp_dict["view_sum"] = view_sum
+    view_sum = df["view"].sum()
+    view_sum
+    temp_dict["view_sum"] = view_sum
 
     # 평균
     view_mean = int(df["view"].mean())
