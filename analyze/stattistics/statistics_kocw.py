@@ -49,14 +49,27 @@ fig.update_layout(barmode="group", xaxis_tickangle=-45)
 fig.show()
 
 # %%
-# 세로 라벨 차트
 import plotly.graph_objects as go
 
 x = sort_count_df["college"]
 y = sort_count_df["count"]
-
-# Use textposition='auto' for direct text
-fig = go.Figure(data=[go.Bar(x=x, y=y, text=y, textposition="auto",)])
+fig = go.Figure()
+fig.add_trace(
+    go.Bar(
+        x=x,
+        y=y,
+        text=y,
+        textfont=dict(size=12, color="RGB(255,255,255)"),
+        textposition="auto",
+        name="강의수",
+        marker_color="#4C92F5",
+        marker_line_color="rgb(8,48,107)",
+        marker_line_width=2,
+        opacity=0.6,
+        showlegend=True,
+    ),
+)
+fig.update_layout(legend=dict(yanchor="top", xanchor="right", x=0.99, y=0.99))
 fig.update_layout(barmode="group", xaxis_tickangle=-45)
 fig.show()
 

@@ -1,10 +1,10 @@
-<img class="chart-image mx-auto d-block" src="static/images/charts/python_view_max.png">
+<img class="mx-auto d-block img-fluid" src="static/images/charts/python_view_max.png">
 <div class="table-responsive">
     <table class="table">
         <thead>
             <tr>
                 <th scope="col">순위</th>
-                <th scope="col">이름</th>
+                <th scope="col">강의명</th>
                 <th scope="col">조회수</th>
                 <th scope="col">바로가기</th>
             </tr>
@@ -12,18 +12,20 @@
         <tbody>
             {% for index in range(0,3) %}
             <tr>
-                <td class="td-center">{{index+1}}</td>
+                <td>{{index+1}}</td>
                 <td>
-                    <div style="overflow:hidden; text-overflow:ellipsis; width:300px;">
+                    <div class="m-auto text-truncate">
                         <nobr>{{python_dict["title"][index]}}</nobr>
                     </div>
                 </td>
                 <td>
                     {{python_dict["view"][index]}}
                 </td>
-                <td class="td-center">
+                <td>
                     <button class="bttn-material-circle bttn-sm bttn-primary bttn-no-outline">
-                        <a href="{{python_dict['url'][index]}}"><i class="fas fa-external-link-alt"></i></a>
+                        <a href="{{python_dict['url'][index]}}" target="_blank">
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
                     </button>
                 </td>
             </tr>

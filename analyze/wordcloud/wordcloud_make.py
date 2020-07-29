@@ -26,6 +26,17 @@ icon = Image.open("etc.png")
 etc_mask = Image.new("RGB", icon.size, (255, 255, 255))
 etc_mask.paste(icon, icon)
 etc_mask = np.array(etc_mask)
+
+icon = Image.open("team.png")
+team_mask = Image.new("RGB", icon.size, (255, 255, 255))
+team_mask.paste(icon, icon)
+team_mask = np.array(team_mask)
+
+icon = Image.open("name.png")
+name_mask = Image.new("RGB", icon.size, (255, 255, 255))
+name_mask.paste(icon, icon)
+name_mask = np.array(name_mask)
+
 # %%
 from wordcloud import WordCloud
 import numpy as np
@@ -52,6 +63,10 @@ def displayWordCloud(language_name, data):
         mask = c_mask
     if language_name == "etc":
         mask = etc_mask
+    if language_name == "team":
+        mask = team_mask
+    if language_name == "name":
+        mask = name_mask
 
     wordcloud = WordCloud(
         font_path="C:\\Users\\admin\\AppData\\Local\\Microsoft\\Windows\\Fonts\\NanumBarunGothic.ttf",
@@ -77,12 +92,14 @@ def displayWordCloud(language_name, data):
 # %%
 # soynlp 사용 명사 추출
 language_list = ["python", "java", "c", "etc"]
+# language_list = ["java", "etc"]
+
 from soynlp.noun import LRNounExtractor_v2
 
 for language_name in language_list:
     title_list = []
     df = pd.read_csv(
-        f"../../analyze_data/{language_name}/{language_name}_all.csv"
+        f"../../analyze_data/{language_name}/{language_name}_team.csv"
     )
     titles = df["title"]
     for title in titles:
@@ -100,3 +117,12 @@ for language_name in language_list:
     displayWordCloud(language_name, " ".join(nouns))
     # noun_extractor._compounds_components.get(title_list, None)
 
+
+# %%
+# language_list = ["java", "etc"]
+
+from soynlp.noun import LRNounExtractor_v2
+
+title_list = []
+df = pd.read_csv(f"../../analyze_data/team/team_team.csv")
+# displayWordCloud(team, " ".join(nouns))
