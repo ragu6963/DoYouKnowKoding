@@ -4,7 +4,8 @@
 
 ### crawling ###
 crawling/data
-data
+crawling_data/
+analyze_data/
 
 ### Django ###
 *.log
@@ -47,7 +48,6 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
-analyze_data/
 .vscode/
 
 # PyInstaller

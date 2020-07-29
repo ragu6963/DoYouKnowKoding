@@ -34,6 +34,15 @@
                 </div>
             </div>
         </div>
+        <!-- <div>
+            <div class="book-wrap">
+                <div class="page-content">
+                     p4
+                    all_1 
+        {% include "books/pages/all_2.html" %}
+            </div>
+            </div>
+    </div> -->
 
         <!-- Python -->
         <div>
@@ -179,19 +188,19 @@
                 </div>
             </div>
         </div>
-        <!--end cover -->
-        <div class="hard">
+        <div>
             <div class="book-wrap">
-                <div class="cover-content">
+                <div class="page-content">
                     <!-- p19
-                    end1 -->
+                    etc3 -->
+                    {% include "books/pages/etc_4.html" %}
                 </div>
             </div>
         </div>
         <div class="hard end-cover">
             <!-- cover -->
             <!-- <div class="book-wrap"> -->
-            <div class=""">
+            <div class="">
                 {% include "books/pages/endcover.html" %}
             </div>
             <!-- </div> -->
@@ -230,13 +239,41 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-image: url(" ../static/images/books/right-border.png"); background-position: right top;
-                background-repeat: repeat-y; -webkit-box-shadow: inset 5px 5px 15px 1px rgba(0, 0, 0, 0.3) !important;
-                -moz-box-shadow: inset 5px 5px 15px 1px rgba(0, 0, 0, 0.3) !important; box-shadow: inset 5px 5px 15px
-                1px rgba(0, 0, 0, 0.3) !important; } /*홀수*/ .odd { position: absolute; top: 0; left: 0; width: 100%;
-                height: 100%; background-image: url("../static/images/books/left-border.png"); background-position: left
-                top; background-repeat: repeat-y; -webkit-box-shadow: inset -5px 5px 15px 1px rgba(0, 0, 0, 0.3)
-                !important; -moz-box-shadow: inset -5px 5px 15px 1px rgba(0, 0, 0, 0.3) !important; box-shadow: inset
-                -5px 5px 15px 1px rgba(0, 0, 0, 0.3) !important; } .bookpage { padding-top: 75px; padding-bottom: 25px;
-                } .flipbook { margin-left: auto; margin-right: auto; } .page { background-color: rgba(255, 255,
-                255,255); } </style>
+        background-image: url(" ../static/images/books/right-border.png");
+        background-position: right top;
+        background-repeat: repeat-y;
+        -webkit-box-shadow: inset 5px 5px 15px 1px rgba(0, 0, 0, 0.3) !important;
+        -moz-box-shadow: inset 5px 5px 15px 1px rgba(0, 0, 0, 0.3) !important;
+        box-shadow: inset 5px 5px 15px 1px rgba(0, 0, 0, 0.3) !important;
+    }
+
+    /*홀수*/
+    .odd {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("../static/images/books/left-border.png");
+        background-position: left top;
+        background-repeat: repeat-y;
+        -webkit-box-shadow: inset -5px 5px 15px 1px rgba(0, 0, 0, 0.3) !important;
+        -moz-box-shadow: inset -5px 5px 15px 1px rgba(0, 0, 0, 0.3) !important;
+        box-shadow: inset -5px 5px 15px 1px rgba(0, 0, 0, 0.3) !important;
+    }
+
+    .bookpage {
+        padding-top: 50px;
+        padding-bottom: 25px;
+    }
+
+    .flipbook {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .page {
+        background-color: rgba(255, 255,
+                255, 255);
+    }
+</style>
