@@ -1,4 +1,4 @@
-<img class="mx-auto d-block img-fluid" src="static/images/charts/java_view_max.png">
+<img class="mx-auto d-block rank-img" src="static/images/charts/java_view_max.png">
 <div class="table-responsive">
     <table class="table">
         <thead>
@@ -14,8 +14,8 @@
             <tr>
                 <td>{{index+1}}</td>
                 <td>
-                    <div class="m-auto text-truncate" style="max-width: 500px;">
-                        {{java_dict["title"][index]}}
+                    <div class="m-auto text-truncate" style="max-width: 350px;">
+                        <nobr>{{java_dict["title"][index]}}</nobr>
                     </div>
                 </td>
                 <td>
@@ -33,6 +33,6 @@
         </tbody>
     </table>
 </div>
-<h5 style="position : absolute; left: 50%; top: 90%; font-size : 12pt;">
+<h5 class="page-number">
     -3-
 </h5>

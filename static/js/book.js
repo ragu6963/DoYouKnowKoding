@@ -1,4 +1,4 @@
-var height = $(window).height() - $(window).height() * 0.1;
+var height = $(window).height() - $(window).height() * 0.05;
 var width = $(window).width() - $(window).width() * 0.05;
 var all_page = [2, 3]
 var python_page = [4, 5, 6, 7]

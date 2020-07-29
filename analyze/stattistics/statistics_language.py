@@ -4,7 +4,7 @@ import pandas as pd
 import numpy as np
 
 # %%
-language_list = ["python", "java", "c", "etc"]
+language_list = ["python", "java", "c"]
 
 # %%
 temp_df = pd.DataFrame(
@@ -59,7 +59,8 @@ for language_name in language_list:
 
     columns_list = df.columns
 
-    price_df = df[df.price != 0]
+    price_df = df[df.price > 0]
+    print(price_df)
     # price 최댓값
     price_max = price_df["price"].max()
     temp_dict["price_max"] = price_max
@@ -76,67 +77,66 @@ for language_name in language_list:
     price_std = price_df["price"].std()
     temp_dict["price_std"] = price_std
 
-    # if "like" in columns_list:
-    #     # like 최댓값
-    #     like_max = df["like"].max()
-    #     temp_dict["like_max"] = like_max
-
-    #     # like 최솟값
-    #     like_min = df["like"].min()
-    #     temp_dict["like_min"] = like_min
-
-    #     # like 평균
-    #     like_mean = int(df["like"].mean())
-    #     temp_dict["like_mean"] = like_mean
-
-    #     # like 표준편차
-    #     like_std = df["like"].std()
-    #     temp_dict["like_std"] = like_std
-
-    # else:
-    #     like_mean = np.nan
-
-    # if "score" in columns_list:
-    #     # score 최댓값
-    #     score_max = df["score"].max()
-    #     temp_dict["score_max"] = score_max
-    #     # score 최솟값
-    #     score_min = df["score"].min()
-    #     temp_dict["score_min"] = score_min
-
-    #     # score 평균
-    #     df["score"] = np.where(df["score"] == -1, np.nan, df["score"])
-    #     score_mean = int(df["score"].mean())
-    #     temp_dict["score_mean"] = score_mean
-
-    #     # score 표준편차
-    #     score_std = df["score"].std()
-    #     temp_dict["score_std"] = score_std
-    # else:
-    #     score_mean = np.nan
-
     temp_series = pd.Series(temp_dict)
     temp_df = temp_df.append(temp_series, ignore_index=True)
 
     # 유료강의 무료강의 나누기
     # 기타 강의 제외
-    if language_name != "etc":
-        temp_free_df = df[df.price == 0]
-        free_df = free_df.append(temp_free_df)
-        free_df = free_df.append(df[df.price.isnull()])
+    # if language_name != "etc":
+    #     temp_free_df = df[df.price == 0]
+    #     free_df = free_df.append(temp_free_df)
+    #     free_df = free_df.append(df[df.price.isnull()])
 
-        temp_no_free_df = df[df.price > 0]
-        no_free_df = no_free_df.append(temp_no_free_df)
+    #     temp_no_free_df = df[df.price > 0]
+    #     no_free_df = no_free_df.append(temp_no_free_df)
 
-    python_free_df = free_df[free_df.subject == "파이썬"]
-    java_free_df = free_df[free_df.subject == "자바"]
-    c_free_df = free_df[free_df.subject == "C언어"]
+    # python_free_df = free_df[free_df.subject == "파이썬"]
+    # java_free_df = free_df[free_df.subject == "자바"]
+    # c_free_df = free_df[free_df.subject == "C언어"]
 
-    python_no_free_df = no_free_df[no_free_df.subject == "파이썬"]
-    java_no_free_df = no_free_df[no_free_df.subject == "자바"]
-    c_no_free_df = no_free_df[no_free_df.subject == "C언어"]
+    # python_no_free_df = no_free_df[no_free_df.subject == "파이썬"]
+    # java_no_free_df = no_free_df[no_free_df.subject == "자바"]
+    # c_no_free_df = no_free_df[no_free_df.subject == "C언어"]
 temp_df
-# free_df
+# %%
+# 가격 평균 및 표준편차
+import plotly.graph_objects as go
+
+langauge = ["Python", "Java", "C language"]
+price_mean_list = temp_df["price_mean"]
+price_std_list = temp_df["price_std"]
+
+fig = go.Figure()
+
+fig.add_trace(
+    go.Bar(
+        x=langauge,
+        y=price_mean_list,
+        name="가격 평균",
+        marker_color="#4C92F5",
+        marker_line_color="rgb(8,48,107)",
+        marker_line_width=2,
+        opacity=0.6,
+        showlegend=True,
+    )
+)
+
+fig.add_trace(
+    go.Bar(
+        x=langauge,
+        y=price_std_list,
+        name="가격 표준편차",
+        marker_color="rgb(245, 76, 76)",
+        marker_line_color="rgb(107, 8, 8)",
+        marker_line_width=2,
+        opacity=0.6,
+        showlegend=True,
+    )
+)
+
+fig.update_layout(legend=dict(yanchor="top", xanchor="right", x=0.6, y=0.99))
+fig.update_layout(barmode="group")
+fig.show()
 
 
 # %%
