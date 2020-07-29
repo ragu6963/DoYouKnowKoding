@@ -1,17 +1,17 @@
-var height = $(window).height() - $(window).height() * 0.05;
+var height = $(window).height() - $(window).height() * 0.1;
 var width = $(window).width() - $(window).width() * 0.05;
-var all_page = [2, 3]
-var python_page = [4, 5, 6, 7]
-var java_page = [8, 9, 10, 11]
-var c_page = [12, 13, 14, 15]
-var etc_page = [16, 17, 18, 19]
-var end_page = [20]
+var all_page = [2, 3, 4, 5]
+var python_page = [6, 7, 8, 9]
+var java_page = [10, 11, 12, 13]
+var c_page = [14, 15, 16, 17]
+var etc_page = [18, 19, 20, 21]
+var end_page = [22]
 
 // turn js 설정
 $("#flipbook").turn({
     width: width,
     height: height,
-    duration: 1200,
+    duration: 600,
 });
 
 function hidden_bookmark(hiddenBtn) {
@@ -68,7 +68,10 @@ function etcGo() {
     $("#flipbook").turn("page", etc_page[0]);
     return false;
 }
-
+function sourceGo() {
+    $("#flipbook").turn("page", 21);
+    return false;
+}
 // 종합 페이지
 $("#allBtn").click(function () {
     $("#flipbook").turn("page", all_page[0]);

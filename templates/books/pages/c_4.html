@@ -1,4 +1,38 @@
 <img class="mx-auto d-block rank-img" src="static/images/charts/c_view_max.png">
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">순위</th>
+                <th scope="col">강의명</th>
+                <th scope="col">조회수</th>
+                <th scope="col">바로가기</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for index in range(0,3) %}
+            <tr>
+                <td>{{index+1}}</td>
+                <td>
+                    <div class="m-auto text-truncate" style="max-width: 350px;">
+                        <nobr>{{c_dict["title"][index]}}</nobr>
+                    </div>
+                </td>
+                <td>
+                    {{c_dict["view"][index]}}
+                </td>
+                <td>
+                    <button class="bttn-material-circle bttn-sm bttn-primary bttn-no-outline">
+                        <a class="lecture-link" href="{{c_dict['url'][index]}}" target="_blank">
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 <h5 class="page-number">
     -3-
 </h5>

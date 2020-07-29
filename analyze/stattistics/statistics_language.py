@@ -60,7 +60,6 @@ for language_name in language_list:
     columns_list = df.columns
 
     price_df = df[df.price > 0]
-    print(price_df)
     # price 최댓값
     price_max = price_df["price"].max()
     temp_dict["price_max"] = price_max
@@ -98,6 +97,44 @@ for language_name in language_list:
     # java_no_free_df = no_free_df[no_free_df.subject == "자바"]
     # c_no_free_df = no_free_df[no_free_df.subject == "C언어"]
 temp_df
+# %%
+import plotly.graph_objects as go
+
+langauge = ["Python", "Java", "C language"]
+view_mean_list = temp_df["view_mean"]
+view_std_list = temp_df["view_std"]
+
+fig = go.Figure()
+
+fig.add_trace(
+    go.Bar(
+        x=langauge,
+        y=view_mean_list,
+        name="조회수 평균",
+        marker_color="#4C92F5",
+        marker_line_color="rgb(8,48,107)",
+        marker_line_width=2,
+        opacity=0.6,
+        showlegend=True,
+    )
+)
+
+fig.add_trace(
+    go.Bar(
+        x=langauge,
+        y=view_std_list,
+        name="조회수 표준편차",
+        marker_color="rgb(245, 76, 76)",
+        marker_line_color="rgb(107, 8, 8)",
+        marker_line_width=2,
+        opacity=0.6,
+        showlegend=True,
+    )
+)
+
+fig.update_layout(legend=dict(yanchor="top", xanchor="right", x=0.6, y=0.99))
+fig.update_layout(barmode="group")
+fig.show()
 # %%
 # 가격 평균 및 표준편차
 import plotly.graph_objects as go
